@@ -28,6 +28,7 @@ import android.provider.Settings;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
@@ -44,17 +45,35 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.everest.basecamp.preferences.SystemSettingSwitchPreference;
+import com.everest.basecamp.utils.DeviceUtils;
+
 @SearchIndexable
 public class StatusBar extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener {
+
+    private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
+    private static final String KEY_BLUETOOTH_BATTERY_STATUS = "bluetooth_show_battery";
+
+    private PreferenceCategory mIconsCategory;
+    private SystemSettingSwitchPreference mBluetoothBatteryStatus;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.everest_statusbar);
         PreferenceScreen prefSet = getPreferenceScreen();
+        final Context context = getContext();
+        final ContentResolver resolver = context.getContentResolver();
         final Resources res = getResources();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
+        mBluetoothBatteryStatus = (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
+
+        if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+            mIconsCategory.removePreference(mBluetoothBatteryStatus);
+        }
     }
 
     @Override
@@ -79,6 +98,9 @@ public class StatusBar extends SettingsPreferenceFragment
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     final List<String> keys = super.getNonIndexableKeys(context);
+                    if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+                        keys.add(KEY_BLUETOOTH_BATTERY_STATUS);
+                    }
                     return keys;
                 }
             };

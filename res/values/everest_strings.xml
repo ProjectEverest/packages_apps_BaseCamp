@@ -168,4 +168,8 @@
     <string name="notifications_interface_category">Interface</string>
     <string name="notifications_kill_app_button_title">Kill app</string>
     <string name="notifications_kill_app_button_summary">Show a kill app button in the notification\'s longpress menu</string>
+
+    <!-- Bluetooth battery status -->
+    <string name="status_bar_bluetooth_battery_title">Bluetooth battery status</string>
+    <string name="status_bar_bluetooth_battery_summary">Display battery status for the connected Bluetooth device, if available</string>
 </resources>

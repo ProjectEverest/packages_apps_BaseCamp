@@ -28,6 +28,24 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="heads_up"
+        android:title="@string/notifications_heads_up_title">
+
+        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:key="less_boring_heads_up"
+            android:title="@string/less_boring_heads_up_title"
+            android:summary="@string/less_boring_heads_up_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="heads_up_notifications"
+            android:summary="@string/heads_up_notifications_summary"
+            android:title="@string/heads_up_notifications"
+            android:fragment="com.everest.basecamp.fragments.HeadsUpSettings"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="notifications_sounds_vibration_category"
         android:title="@string/notifications_sounds_vibration_category">
 

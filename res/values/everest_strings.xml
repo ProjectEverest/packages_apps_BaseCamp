@@ -461,4 +461,8 @@
     <string name="qs_dual_tone_title">QS dual tone</string>
     <string name="qs_dual_tone_summary">Use dual tone background colors</string>
     
+    <!-- Fingerprint Ripple Effect -->
+    <string name="enable_fingerprint_ripple_effect_title">Ripple effect</string>
+    <string name="enable_fingerprint_ripple_effect_summary">Show ripple effect on unlock with fingerprint</string>
+    
 </resources>

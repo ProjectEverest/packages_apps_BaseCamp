@@ -480,6 +480,19 @@
         <item>5</item>
         <item>6</item>
     </string-array>
+    
+    <!-- Screen off animation -->
+    <string-array name="screen_off_animation_entries">
+        <item>@string/screen_off_animation_default</item>
+        <item>@string/screen_off_animation_crt</item>
+        <item>@string/screen_off_animation_scale</item>
+    </string-array>
+
+    <string-array name="screen_off_animation_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 
     <string-array name="smart_pixels_shift_times" translatable="false">
         <item>@string/custom_timeout_summary_15secs</item>

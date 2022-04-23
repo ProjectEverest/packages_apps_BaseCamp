@@ -29,6 +29,12 @@
             android:summary="@string/miscellaneous_app_downgrade_summary"
             android:defaultValue="false" />
 
+        <!-- Ignore window secure flags -->
+        <com.everest.basecamp.preferences.GlobalSettingSwitchPreference
+            android:key="window_ignore_secure"
+            android:title="@string/miscellaneous_ignore_window_secure_title"
+            android:summary="@string/miscellaneous_ignore_window_secure_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
 </PreferenceScreen>

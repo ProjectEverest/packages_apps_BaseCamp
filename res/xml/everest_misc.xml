@@ -18,6 +18,16 @@
             android:key="basecamp_wpblur_radius"
             android:defaultValue="15"
             settings:units="%" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/general_category">
+
+        <com.everest.basecamp.preferences.GlobalSettingSwitchPreference
+            android:key="pm_downgrade_allowed"
+            android:title="@string/miscellaneous_app_downgrade_title"
+            android:summary="@string/miscellaneous_app_downgrade_summary"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 

@@ -112,4 +112,9 @@
     <string name="font_styles_summary">Change system font style</string>
     <string name="font_preview_text">The quick brown\nfox jumps over the\nlazy dog\n\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijkl\nmnopqrstuvwxyz\n1234567890</string>
     <string name="apply_button_text">Apply</string>
+    
+    <!-- Application Downgrade -->
+    <string name="miscellaneous_developer_options_category">Developer options</string>
+    <string name="miscellaneous_app_downgrade_title">Allow application downgrade</string>
+    <string name="miscellaneous_app_downgrade_summary">Allow downgrading system applications, which may result in crashes and data loss</string>
 </resources>

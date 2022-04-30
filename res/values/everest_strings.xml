@@ -607,4 +607,9 @@
     <!-- Udfps icon -->
     <string name="themes_udfps_icon_title">UDFPS icon</string>
     <string name="themes_udfps_icon_summary">Set UDFPS icon style</string>
+
+    <!-- Qs Transparency -->
+    <string name="qs_cust_category">Qs Customizaions</string>
+    <string name="qs_transparency_summary">Choose how transparent you want your qs to be</string>
+    <string name="qs_transparency_title">Qs Transparency</string>
 </resources>

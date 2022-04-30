@@ -65,6 +65,21 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/qs_cust_category">
+
+        <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
+            android:defaultValue="100"
+            android:key="qs_transparency"
+            android:max="100"
+            android:min="1"
+            android:summary="@string/qs_transparency_summary"
+            android:title="@string/qs_transparency_title"
+            settings:interval="1"
+            settings:units="%" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="quick_settings_lock_screen_category"
         android:title="@string/quick_settings_lock_screen_category">
 

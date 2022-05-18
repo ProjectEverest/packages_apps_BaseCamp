@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.everest.basecamp.navigation.BubbleNavigationConstraintView
+        android:id="@+id/floating_top_bar_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/floating_bg"
+        android:elevation="8dp"
+        android:padding="16dp"
+        app:extensions_mode="spread"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.everest.basecamp.navigation.BubbleToggleView
+            android:id="@+id/themes_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:extensions_colorActive="?android:colorPrimary"
+            app:extensions_colorInactive="?android:attr/colorAccent"
+            app:extensions_icon="@drawable/ic_category_theme"
+            app:extensions_shape="@drawable/navigation_transition_background_drawable"
+            app:extensions_title="@string/themes_category"
+            app:extensions_titleColorActive="?android:colorPrimary" />
+
+        <com.everest.basecamp.navigation.BubbleToggleView
+            android:id="@+id/system_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:extensions_colorActive="?android:colorPrimary"
+            app:extensions_colorInactive="?android:attr/colorAccent"
+            app:extensions_icon="@drawable/ic_category_system"
+            app:extensions_shape="@drawable/navigation_transition_background_drawable"
+            app:extensions_title="@string/system_category"
+            app:extensions_titleColorActive="?android:colorPrimary" />
+
+        <com.everest.basecamp.navigation.BubbleToggleView
+            android:id="@+id/about_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:extensions_colorActive="?android:colorPrimary"
+            app:extensions_colorInactive="?android:attr/colorAccent"
+            app:extensions_icon="@drawable/ic_about"
+            app:extensions_shape="@drawable/navigation_transition_background_drawable"
+            app:extensions_title="@string/about_category"
+            app:extensions_titleColorActive="?android:colorPrimary" />
+
+    </com.everest.basecamp.navigation.BubbleNavigationConstraintView>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/floating_top_bar_navigation"
+        android:layout_marginTop="12dp" />
+</RelativeLayout>

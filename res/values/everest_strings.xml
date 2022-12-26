@@ -1067,4 +1067,9 @@
     <string name="quick_settings_panel_style_reflected">Reflected</string>
     <string name="quick_settings_panel_style_surround">Surround</string>
     <string name="quick_settings_panel_style_thin">ThinLine</string>
+
+    <!-- UI styles -->
+    <string name="ui_category">UI Styles</string>
+    <string name="theme_customization_ui_style_title">UI Style</string>
+    <string name="theme_customization_ui_style_summary">Set custom style for your interface</string>
 </resources>

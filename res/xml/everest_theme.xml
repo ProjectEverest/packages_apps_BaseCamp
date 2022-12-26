@@ -27,6 +27,21 @@
     
     </PreferenceCategory>
 
+    <!-- UI Styles -->
+    <PreferenceCategory
+        android:key="ui_category"
+        android:title="@string/ui_category">
+
+
+        <!-- UI style -->
+        <Preference
+            android:key="android.theme.customization.style"
+            android:title="@string/theme_customization_ui_style_title"
+            android:summary="@string/theme_customization_ui_style_summary"
+            android:fragment="com.everest.basecamp.fragments.ui.UIStyles"/>
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="themes_icons_category"
         android:title="@string/themes_icons_category">

@@ -691,4 +691,11 @@
     <string name="monet_engine_wallpaper_color_select_summary">Select a different accent color from your wallpaper</string>
     <string name="monet_engine_wallpaper_color_select_title">Wallpaper color selector</string>
     <string name="not_available">Not available</string>
+     
+    <!-- Header styles -->
+    <string name="about_header_title">Header style</string>
+    <string name="about_header_blur">BlurView</string>
+    <string name="about_header_random">Small Random</string>
+    <string name="about_header_lottie1">Lottie1</string>
+    <string name="about_header_lottie2">Lottie2</string>
 </resources>

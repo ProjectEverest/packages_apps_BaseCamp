@@ -33,6 +33,8 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.everest.SystemRestartUtils;
+import com.everest.basecamp.preferences.SystemSettingListPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -48,6 +50,10 @@ import java.util.List;
 public class Miscs extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener {
 
+    private static final String ABOUT_PHONE_STYLE = "header_style";
+
+    private SystemSettingListPreference mAboutPhoneStyle;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -55,10 +61,19 @@ public class Miscs extends SettingsPreferenceFragment
         PreferenceScreen prefSet = getPreferenceScreen();
         final Resources res = getResources();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mAboutPhoneStyle = (SystemSettingListPreference) findPreference(ABOUT_PHONE_STYLE);
+        mAboutPhoneStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+    	Context mContext = getActivity().getApplicationContext();
+	ContentResolver resolver = mContext.getContentResolver();
+        if (preference == mAboutPhoneStyle) {
+            SystemRestartUtils.showSettingsRestartDialog(getContext());
+            return true;
+        }
         return false;
     }
 

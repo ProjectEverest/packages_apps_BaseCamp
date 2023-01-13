@@ -12,6 +12,12 @@
         android:key="lock_screen_interface_category"
         android:title="@string/lock_screen_interface_category">
 
+        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:defaultValue="false"
+            android:key="double_tap_sleep_lockscreen"
+            android:summary="@string/double_tap_to_sleep_lockscreen_summary"
+            android:title="@string/double_tap_to_sleep_lockscreen_title" />
+
         <!-- Charging stats -->
         <com.everest.basecamp.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_battery_info"

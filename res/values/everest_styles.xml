@@ -114,4 +114,8 @@
     <style name="TextAppearance.HomepagePreferenceTitle" parent="@android:style/TextAppearance.DeviceDefault">
         <item name="android:textSize">22sp</item>
     </style>
+
+    <!-- Monet wallpaper -->
+    <style name="Theme.WallpaperColorPicker.Dialog.Alert" parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
+    </style>
 </resources>

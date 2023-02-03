@@ -8,7 +8,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/theme_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
+
+    <PreferenceCategory
+    android:title="@string/theming_category">
+
+    <!-- Monet settings -->
+    <Preference
+        android:key="monet_engine"
+        android:title="@string/monet_engine_title"
+        android:summary="@string/monet_engine_summary"
+        android:fragment="com.everest.basecamp.fragments.ui.MonetEngine" />
     
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="themes_icons_category"
         android:title="@string/themes_icons_category">

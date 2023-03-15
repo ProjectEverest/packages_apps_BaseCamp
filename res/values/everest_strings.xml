@@ -984,4 +984,8 @@
     <string name="custom_battery_bottom">Margin Bottom</string>
     <string name="custom_battery_left">Margin Left</string>
     <string name="custom_battery_right">Margin Right</string>
+
+    <!-- Brightness TextView-->
+    <string name="brightness_percent_title">Brightness Percentage</string>
+    <string name="brightness_percent_summary">Show hide brightness percentage text</string> 
 </resources>

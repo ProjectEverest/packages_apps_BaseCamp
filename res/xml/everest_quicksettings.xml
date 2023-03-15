@@ -75,6 +75,12 @@
             android:summary="@string/quick_settings_auto_brightness_icon_summary"
             android:title="@string/quick_settings_auto_brightness_icon_title" />
 
+       <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:title="@string/brightness_percent_title"
+            android:key="BRIGHTNESS_TEXTVIEW"
+            android:summary="@string/brightness_percent_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

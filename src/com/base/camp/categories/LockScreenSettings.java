@@ -38,10 +38,17 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.everest.support.preferences.SecureSettingSwitchPreference;
+
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
         
      private static final String CATEGORY_AMBIENT = "ambient_display";
+
+     private static final String LOCKSCREEN_DOUBLE_LINE_CLOCK = "lockscreen_double_line_clock_switch";
+
+    	private SwitchPreference mKGCustomClockColor;
+    	private SecureSettingSwitchPreference mDoubleLineClock;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -58,11 +65,22 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             prefScreen.removePreference(ambientCat);
         }
 
+        mDoubleLineClock = (SecureSettingSwitchPreference ) findPreference(LOCKSCREEN_DOUBLE_LINE_CLOCK);
+        mDoubleLineClock.setChecked((Settings.Secure.getInt(getContentResolver(),
+             Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK, 1) != 0));
+        mDoubleLineClock.setOnPreferenceChangeListener(this);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
 
+            if (preference == mDoubleLineClock) {
+        	boolean value = (Boolean) newValue;
+            Settings.Secure.putInt(resolver,
+                    Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK, value ? 1 : 0);
+            return true; 
+        }
         return false;
     }
 

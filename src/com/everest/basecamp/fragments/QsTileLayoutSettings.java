@@ -30,6 +30,7 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.everest.ThemeUtils;
 
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -42,6 +43,12 @@ import com.everest.basecamp.preferences.SystemSettingSwitchPreference;
 @SearchIndexable
 public class QsTileLayoutSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
+    private static final String KEY_QS_UI_STYLE  = "qs_tile_ui_style";
+
+    private ListPreference mQsUI;
+
+    private static ThemeUtils mThemeUtils;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -49,10 +56,32 @@ public class QsTileLayoutSettings extends SettingsPreferenceFragment implements 
         addPreferencesFromResource(R.xml.qs_tile_layout);
 
         final Context mContext = getActivity().getApplicationContext();
+        mThemeUtils = new ThemeUtils(getActivity());
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        String isA11Style = Integer.toString(Settings.System.getIntForUser(resolver,
+                Settings.System.QS_TILE_UI_STYLE , 0, UserHandle.USER_CURRENT));
+
+        mQsUI = (ListPreference) findPreference(KEY_QS_UI_STYLE);
+        int index = mQsUI.findIndexOfValue(isA11Style);
+        mQsUI.setValue(isA11Style);
+        mQsUI.setSummary(mQsUI.getEntries()[index]);
+        mQsUI.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mQsUI) {
+            int value = Integer.parseInt((String) newValue);
+            int index = mQsUI.findIndexOfValue((String) newValue);
+            mQsUI.setValue((String) newValue);
+            mQsUI.setSummary(mQsUI.getEntries()[index]);
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.QS_TILE_UI_STYLE, value, UserHandle.USER_CURRENT);
+            updateQsStyle(getActivity());
+            return true;
+        }
         return false;
     }
 
@@ -60,6 +89,8 @@ public class QsTileLayoutSettings extends SettingsPreferenceFragment implements 
         ContentResolver resolver = mContext.getContentResolver();
         Resources res = null;
 
+        Settings.System.putIntForUser(resolver,
+                Settings.System.QS_TILE_UI_STYLE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, 2, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
@@ -74,6 +105,29 @@ public class QsTileLayoutSettings extends SettingsPreferenceFragment implements 
                 Settings.System.QS_TILE_LABEL_HIDE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_TILE_LABEL_SIZE, 14, UserHandle.USER_CURRENT);
+        updateQsStyle(mContext);
+    }
+
+    private static void updateQsStyle(Context context) {
+        ContentResolver resolver = context.getContentResolver();
+
+        boolean isA11Style = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_TILE_UI_STYLE , 0, UserHandle.USER_CURRENT) != 0;
+
+	    String qsUIStyleCategory = "android.theme.customization.qs_ui";
+        String overlayThemeTarget  = "com.android.systemui";
+        String overlayThemePackage  = "com.android.system.qs.ui.A11";
+
+        if (mThemeUtils == null) {
+            mThemeUtils = new ThemeUtils(context);
+        }
+
+	    // reset all overlays before applying
+        mThemeUtils.setOverlayEnabled(qsUIStyleCategory, overlayThemeTarget, overlayThemeTarget);
+
+	    if (isA11Style) {
+            mThemeUtils.setOverlayEnabled(qsUIStyleCategory, overlayThemePackage, overlayThemeTarget);
+	    }
     }
 
     @Override

@@ -77,6 +77,12 @@
             settings:interval="1"
             settings:units="%" />
 
+        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:defaultValue="true"
+            android:key="qs_dual_tone"
+            android:summary="@string/qs_dual_tone_summary"
+            android:title="@string/qs_dual_tone_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

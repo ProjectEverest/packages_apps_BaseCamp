@@ -1072,4 +1072,8 @@
     <string name="ui_category">UI Styles</string>
     <string name="theme_customization_ui_style_title">UI Style</string>
     <string name="theme_customization_ui_style_summary">Set custom style for your interface</string>
+
+    <!-- Spoof storage encryption status -->
+    <string name="spoof_storage_encryption_status_title">Use storage encryption spoofing</string>
+    <string name="spoof_storage_encryption_status_summary">Spoof storage encryption status to encrypted.</string>
 </resources>

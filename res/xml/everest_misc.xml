@@ -64,6 +64,12 @@
             android:summary="@string/miscellaneous_ignore_window_secure_summary"
             android:defaultValue="false" />
 
+        <com.everest.basecamp.preferences.GlobalSettingSwitchPreference
+            android:key="spoof_storage_encryption_status"
+            android:title="@string/spoof_storage_encryption_status_title"
+            android:summary="@string/spoof_storage_encryption_status_summary"
+            android:defaultValue="false"/>
+
         <Preference
             android:key="smart_pixels"
             android:title="@string/smart_pixels_title"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022-2023 The EverestOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/theme_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
+    
+    <PreferenceCategory
+    android:title="@string/general_category">
+    
+    </PreferenceCategory>
+
+</PreferenceScreen>

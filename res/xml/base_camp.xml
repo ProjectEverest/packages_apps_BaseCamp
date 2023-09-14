@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022-2023 The EverestOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/basecamp_title" >
+
+        <!-- Theme Room -->
+        <Preference
+            android:key="theme_category"
+            android:title="@string/theme_title"
+            android:fragment="com.base.camp.categories.ThemeSettings"
+            android:icon="@drawable/ic_settings_theme"/>
+        
+        <!-- Status Bar -->
+        <Preference
+            android:key="statusbar_category"
+            android:title="@string/statusbar_title"
+            android:fragment="com.base.camp.categories.StatusBarSettings" 
+            android:icon="@drawable/ic_settings_statusbar"/>
+
+        <!-- Quick Settings panel -->
+        <Preference
+            android:key="quicksettings_category"
+            android:title="@string/quicksettings_title"
+            android:fragment="com.base.camp.categories.QuickSettings"
+            android:icon="@drawable/ic_settings_quicksettings"/>
+
+        <!-- Buttons -->
+        <Preference
+            android:key="buttonsettings_category"
+            android:title="@string/button_title"
+            android:fragment="com.base.camp.categories.ButtonSettings"
+            android:icon="@drawable/ic_settings_buttons"/>
+
+        <!-- Gestures -->
+        <Preference
+            android:key="gestures_category"
+            android:title="@string/gestures_title" 
+            android:fragment="com.base.camp.categories.GestureSettings"
+            android:icon="@drawable/ic_settings_sos_gestures"/>
+
+        <!-- Lock Screen -->
+        <Preference
+            android:key="lockscreen_category"
+            android:title="@string/lockscreen_title" 
+            android:fragment="com.base.camp.categories.LockScreenSettings"
+            android:icon="@drawable/ic_settings_lockscreens"/>
+
+        <!-- Notifications -->
+        <Preference
+            android:key="notifications_category"
+            android:title="@string/notifications_title"
+            android:fragment="com.base.camp.categories.NotificationSettings"
+            android:icon="@drawable/ic_settings_notifications"/>
+
+        <!-- system -->
+        <Preference
+            android:key="system_category"
+            android:title="@string/system_title" 
+            android:fragment="com.base.camp.categories.SystemSettings"
+            android:icon="@drawable/ic_settings_system"/>
+        
+        <!-- Misc -->
+        <Preference
+            android:key="misc_category"
+            android:title="@string/misc_title" 
+            android:fragment="com.base.camp.categories.MiscSettings"
+            android:icon="@drawable/ic_settings_miscs"/>
+
+</PreferenceScreen>

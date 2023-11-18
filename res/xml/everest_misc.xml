@@ -41,6 +41,12 @@
             android:title="@string/miscellaneous_ignore_window_secure_title"
             android:summary="@string/miscellaneous_ignore_window_secure_summary"
             android:defaultValue="false" />
+
+        <Preference
+            android:key="smart_pixels"
+            android:title="@string/smart_pixels_title"
+            android:summary="@string/smart_pixels_summary"
+            android:fragment="com.everest.basecamp.fragments.SmartPixels" />
     </PreferenceCategory>
 
     <PreferenceCategory

@@ -20,10 +20,10 @@
     
     <!-- Font style -->
     <Preference
-        android:key="android.theme.customization.fonts"
-        android:title="@string/theme_customization_font_title"
-        android:summary="@string/theme_customization_font_summary"
-        android:fragment="com.base.camp.fragments.FontsPicker"/>
+        android:key="font_styles"
+        android:title="@string/font_styles_title"
+        android:summary="@string/font_styles_summary"
+        android:fragment="com.base.camp.fragments.themes.fonts.FontPickerPreview"/>
         
     <Preference
         android:key="android.theme.customization.lockscreen_clock_font"

@@ -11,6 +11,12 @@
     <PreferenceCategory
     android:title="@string/general_category">
 
+    <Preference
+        android:key="island_notification"
+        android:title="@string/island_notification_title"
+        android:summary="@string/island_notification_summary"
+        android:fragment="com.base.camp.fragments.notifications.IslandSettings" />
+         
     <com.everest.support.preferences.SystemSettingSwitchPreference
             android:key="less_boring_heads_up"
             android:title="@string/less_boring_heads_up_title"

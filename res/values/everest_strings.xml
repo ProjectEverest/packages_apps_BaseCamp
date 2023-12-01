@@ -708,4 +708,8 @@
     <!-- System Vibration and Haptics -->
     <string name="system_vibration_title">System Vibration Settings</string>
     <string name="system_vibration_summary">Control Vibration and Haptics</string>
+
+    <!-- Colored QS notification icons -->  
+    <string name="qs_colored_icons_title">Colored QS notification icons</string>
+    <string name="qs_colored_icons_summary">Show colored app icon instead of monochrome icons</string>
 </resources>

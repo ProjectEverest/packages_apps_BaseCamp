@@ -20,6 +20,12 @@
             android:entryValues="@array/status_bar_quick_pull_down_values"
             android:defaultValue="0" />
 
+        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:defaultValue="false"
+            android:key="qs_colored_icons"
+            android:summary="@string/qs_colored_icons_summary"
+            android:title="@string/qs_colored_icons_title" />
+
         <!-- Data usage -->
         <com.everest.basecamp.preferences.SystemSettingSwitchPreference
             android:key="qs_show_data_usage"

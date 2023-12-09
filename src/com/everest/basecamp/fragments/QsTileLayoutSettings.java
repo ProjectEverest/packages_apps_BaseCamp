@@ -61,7 +61,7 @@ public class QsTileLayoutSettings extends SettingsPreferenceFragment implements 
         Resources res = null;
 
         Settings.System.putIntForUser(resolver,
-                Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, 4, UserHandle.USER_CURRENT);
+                Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, 2, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.QQS_LAYOUT_ROWS, 2, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,

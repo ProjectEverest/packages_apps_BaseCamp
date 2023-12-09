@@ -32,10 +32,10 @@
         <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
             android:key="qs_layout_columns_landscape"
             android:title="@string/qs_columns_landscape_title"
-            android:max="6"
+            android:max="5"
             settings:min="2"
             settings:interval="1"
-            android:defaultValue="4" />
+            android:defaultValue="2" />
 
     <!-- qs tile label size -->
     <com.everest.basecamp.preferences.SystemSettingSeekBarPreference

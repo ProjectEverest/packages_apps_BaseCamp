@@ -18,6 +18,7 @@ package com.everest.basecamp.fragments;
 
 import android.content.Context;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -61,6 +62,10 @@ public class QsTileLayoutSettings extends SettingsPreferenceFragment implements 
 
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, 4, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.QQS_LAYOUT_ROWS, 2, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.QQS_LAYOUT_ROWS_LANDSCAPE, 2, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_LAYOUT_COLUMNS, 2, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,

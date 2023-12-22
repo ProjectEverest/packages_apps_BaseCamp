@@ -8,4 +8,8 @@
      <dimen name="everest_radius_merge">5dp</dimen>
      <dimen name="everest_pref_horizontal_padding">16dp</dimen>
      <dimen name="everest_pref_horizontal_padding-negative">-16dp</dimen>
+
+     <!-- Banner -->
+     <dimen name="card_margin_start_aqua">20dp</dimen>
+     <dimen name="card_margin_end_aqua">20dp</dimen>
 </resources>

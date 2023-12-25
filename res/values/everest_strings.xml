@@ -671,4 +671,9 @@
     <string name="ambient_notification_light_accent_title">System accent color</string> 
     <string name="ambient_notification_light_color_automatic_title">Notification color</string> 
     <string name="pulse_ambient_light_color">When pulsing, use</string>
+
+    <!-- Ambient Ticker -->
+    <string name="pulse_on_new_tracks_title">Music ticker</string>
+    <string name="pulse_on_new_tracks_summary">Show music ticker on Ambient Display during track change</string>
+    
 </resources>

@@ -51,8 +51,10 @@ public class Miscs extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener {
 
     private static final String ABOUT_PHONE_STYLE = "header_style";
+    private static final String SETTINGS_DASHBOARD_STYLE = "settings_dashboard_style";
 
     private SystemSettingListPreference mAboutPhoneStyle;
+    private SystemSettingListPreference mDashBoardStyle;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -64,6 +66,8 @@ public class Miscs extends SettingsPreferenceFragment
 
         mAboutPhoneStyle = (SystemSettingListPreference) findPreference(ABOUT_PHONE_STYLE);
         mAboutPhoneStyle.setOnPreferenceChangeListener(this);
+        mDashBoardStyle = (SystemSettingListPreference) findPreference(SETTINGS_DASHBOARD_STYLE);
+        mDashBoardStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -71,6 +75,9 @@ public class Miscs extends SettingsPreferenceFragment
     	Context mContext = getActivity().getApplicationContext();
 	ContentResolver resolver = mContext.getContentResolver();
         if (preference == mAboutPhoneStyle) {
+            SystemRestartUtils.showSettingsRestartDialog(getContext());
+            return true;
+        } else if (preference == mDashBoardStyle) {
             SystemRestartUtils.showSettingsRestartDialog(getContext());
             return true;
         }

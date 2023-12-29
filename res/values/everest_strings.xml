@@ -60,6 +60,7 @@
     <string name="unit_milliseconds">milliseconds</string>
     <string name="unit_pixels" translatable="false">dp</string>
     <string name="unit_seconds">seconds</string>
+    <string name="unit_x1000ms" translatable="false">x1000 ms</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -305,6 +306,7 @@
     <string name="status_bar_clock_date_position">Date position</string>
     <string name="status_bar_clock_date_right">Right of time</string>
     <string name="status_bar_clock_date_left">Left of time</string>
+    <string name="clock_font_size_title">Clock font size</string>
 
     <!-- Statusbar Clock BG chip -->
     <string name="status_bar_clock_chip_title">Background chip</string>

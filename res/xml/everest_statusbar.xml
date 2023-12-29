@@ -118,6 +118,20 @@
             android:defaultValue="14"
             settings:units="@string/unit_pixels" />
 
+        <com.everest.basecamp.preferences.SystemSettingListPreference
+            android:key="status_bar_clock_font_style"
+            android:dialogTitle="@string/status_bar_clock_font_style_title"
+            android:title="@string/status_bar_clock_font_style_title"
+            android:entries="@array/function_fonts_entries"
+            android:entryValues="@array/function_fonts_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
+        <com.everest.basecamp.preferences.colorpicker.SystemSettingColorPickerPreference
+            android:key="status_bar_clock_color"
+            android:title="@string/status_bar_clock_color_title"
+            android:defaultValue="0xffffffff" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

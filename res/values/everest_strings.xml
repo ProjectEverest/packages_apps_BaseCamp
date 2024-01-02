@@ -543,5 +543,9 @@
     
     <!-- Clock -->
     <string name="lockscreen_clock_title">Lockscreen clock</string>
+    
+    <!-- Unlock FPS for specific games -->
+    <string name="games_spoof_title">Unlock higher FPS in games</string>
+    <string name="games_spoof_summary">Spoof your device as a different model for specific games to unlock higher FPS</string>
 
 </resources>

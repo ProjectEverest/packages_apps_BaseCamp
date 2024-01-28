@@ -118,4 +118,13 @@
     <!-- Monet wallpaper -->
     <style name="Theme.WallpaperColorPicker.Dialog.Alert" parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
     </style>
+
+    <style name="Theme.LockscreenWidgets.settings" parent="@style/Theme.MaterialComponents.DayNight">
+        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+    <style name="LockscreenWidgetsBackgroundOverlay" parent="">
+	<item name="cornerFamily">rounded</item>
+	<item name="cornerSize">100dp</item>
+    </style>
 </resources>

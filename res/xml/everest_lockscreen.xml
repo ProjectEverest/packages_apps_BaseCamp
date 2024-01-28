@@ -33,6 +33,49 @@
             android:title="@string/theme_customization_lock_clock_title"
             android:summary="@string/theme_customization_lock_clock_summary"
             android:fragment="com.everest.basecamp.fragments.LockClockFonts" />
+
+        <com.everest.basecamp.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:title="@string/main_custom_widgets1"
+            android:key="main_custom_widgets1"
+            android:entryValues="@array/widget_values" 
+            android:summary="%s" />
+
+        <com.everest.basecamp.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:title="@string/main_custom_widgets2"
+            android:key="main_custom_widgets2"
+            android:entryValues="@array/widget_values"
+            android:summary="%s" />
+
+        <com.everest.basecamp.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:title="@string/custom_widgets1"
+            android:key="custom_widgets1"
+            android:entryValues="@array/widget_values" 
+            android:summary="%s" />
+
+        <com.everest.basecamp.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:title="@string/custom_widgets2"
+            android:key="custom_widgets2"
+            android:entryValues="@array/widget_values"
+            android:summary="%s" />
+
+        <com.everest.basecamp.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:title="@string/custom_widgets3"
+            android:key="custom_widgets3"
+            android:entryValues="@array/widget_values" 
+            android:summary="%s" />
+
+        <com.everest.basecamp.preferences.SystemSettingListPreference
+            android:entries="@array/widget_entries"
+            android:title="@string/custom_widgets4"
+            android:key="custom_widgets4"
+            android:entryValues="@array/widget_values" 
+            android:summary="%s" />
+
      </PreferenceCategory>
 
     <PreferenceCategory

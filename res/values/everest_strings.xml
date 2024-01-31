@@ -735,5 +735,9 @@
     <string name="lockscreen_weather_location_summary">Display current weather location</string>
     <string name="lockscreen_weather_text_title">Current condition</string>
     <string name="lockscreen_weather_text_summary">Display current weather condition summary</string>
+    
+    <!-- Navbar Animation -->
+    <string name="pixel_navbar_anim_title">Pixel animation</string>
+    <string name="pixel_navbar_anim_summary">Enable pixel style animation for 3-button navigation bar</string>
 </resources>
 

@@ -3,7 +3,6 @@
      Copyright (C)2024 The EverestOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
-
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <dimen name="default_corner_radii">24dp</dimen>
@@ -20,8 +19,8 @@
     <dimen name="oval_notification_size">26dp</dimen>
 
     <!-- Everest Cards -->
-    <dimen name="everest_radius">28dp</dimen>
-    <dimen name="everest_radius_merge">5dp</dimen>
+    <dimen name="everest_radius">20dp</dimen>
+    <dimen name="everest_radius_merge">0dp</dimen>
     <dimen name="everest_pref_horizontal_padding">16dp</dimen>
     <dimen name="everest_pref_horizontal_padding-negative">-16dp</dimen>
 

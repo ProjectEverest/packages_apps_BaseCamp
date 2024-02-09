@@ -598,4 +598,8 @@
     <!-- Doze on charge -->
     <string name="doze_on_charge_title">Always show when charging</string>
     <string name="doze_on_charge_summary">Display device is charging</string>
+
+    <!-- Navigation -->
+    <string name="navigation_bar_category">Navigation Bar</string>
+    <string name="system_navigation_summary">Configure navigation menus</string>
 </resources>

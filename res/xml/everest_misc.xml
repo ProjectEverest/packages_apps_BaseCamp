@@ -39,6 +39,12 @@
     <PreferenceCategory
         android:title="@string/general_category">
 
+        <Preference
+            android:key="quickswitch"
+            android:title="@string/quickswitch_launcher_title" 
+            android:summary="@string/quickswitch_launcher_summary" 
+            android:fragment="com.everest.basecamp.fragments.QuickSwitch" /> 
+
         <com.everest.basecamp.preferences.GlobalSettingSwitchPreference
             android:key="pm_downgrade_allowed"
             android:title="@string/miscellaneous_app_downgrade_title"

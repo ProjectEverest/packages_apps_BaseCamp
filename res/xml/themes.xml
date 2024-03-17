@@ -22,7 +22,7 @@
 
     <!-- System font -->
     <Preference
-        android:fragment="com.everest.basecamp.fragments.themes.Fonts"
+        android:fragment="com.everest.basecamp.fragments.themes.fonts.FontPickerPreview"
         android:icon="@drawable/ic_settings_fonts"
         android:key="android.theme.customization.fonts"
         android:summary="@string/themes_system_font_summary"

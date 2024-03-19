@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import androidx.preference.DropDownPreference;
 import androidx.preference.Preference;
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -34,7 +34,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
 
     private static final String TAG = "NetworkTrafficSettings";
 
-    private SwitchPreference mNetTrafficAutohide;
+    private SwitchPreferenceCompat mNetTrafficAutohide;
     private DropDownPreference mNetTrafficUnitType;
 
     @Override

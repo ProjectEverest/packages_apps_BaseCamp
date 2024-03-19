@@ -21,60 +21,11 @@
             android:summary="@string/lockscreen_double_line_clock_summary"
             settings:controller="com.android.settings.display.LockscreenClockPreferenceController" />
 
-        <com.everest.basecamp.preferences.SystemSettingListPreference
-            android:entries="@array/clock_style_entries"
-            android:title="Custom Clock style"
-            android:key="clock_style"
-            android:defaultValue="0"
-            android:entryValues="@array/clock_style_values" />
-
         <Preference
             android:key="android.theme.customization.lockscreen_clock_font"
-            android:title="@string/theme_customization_lock_clock_title"
-            android:summary="@string/theme_customization_lock_clock_summary"
-            android:fragment="com.everest.basecamp.fragments.LockClockFonts" />
-
-        <com.everest.basecamp.preferences.SystemSettingListPreference
-            android:entries="@array/widget_entries"
-            android:title="@string/main_custom_widgets1"
-            android:key="main_custom_widgets1"
-            android:entryValues="@array/widget_values" 
-            android:summary="%s" />
-
-        <com.everest.basecamp.preferences.SystemSettingListPreference
-            android:entries="@array/widget_entries"
-            android:title="@string/main_custom_widgets2"
-            android:key="main_custom_widgets2"
-            android:entryValues="@array/widget_values"
-            android:summary="%s" />
-
-        <com.everest.basecamp.preferences.SystemSettingListPreference
-            android:entries="@array/widget_entries"
-            android:title="@string/custom_widgets1"
-            android:key="custom_widgets1"
-            android:entryValues="@array/widget_values" 
-            android:summary="%s" />
-
-        <com.everest.basecamp.preferences.SystemSettingListPreference
-            android:entries="@array/widget_entries"
-            android:title="@string/custom_widgets2"
-            android:key="custom_widgets2"
-            android:entryValues="@array/widget_values"
-            android:summary="%s" />
-
-        <com.everest.basecamp.preferences.SystemSettingListPreference
-            android:entries="@array/widget_entries"
-            android:title="@string/custom_widgets3"
-            android:key="custom_widgets3"
-            android:entryValues="@array/widget_values" 
-            android:summary="%s" />
-
-        <com.everest.basecamp.preferences.SystemSettingListPreference
-            android:entries="@array/widget_entries"
-            android:title="@string/custom_widgets4"
-            android:key="custom_widgets4"
-            android:entryValues="@array/widget_values" 
-            android:summary="%s" />
+            android:title="@string/lockscreen_clock_category_title"
+            android:summary="@string/lockscreen_clock_category_summary"
+            android:fragment="com.everest.basecamp.fragments.LockScreenClock" />
 
      </PreferenceCategory>
 

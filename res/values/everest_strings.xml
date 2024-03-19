@@ -747,7 +747,15 @@
     <string name="always_on_pocket_mode_enabled_title">Always on Pocket mode</string>
     <string name="always_on_pocket_mode_summary">Always block screen and button inputs when screen is turned on</string>
 
+    <!-- Custom Clock Style -->
+    <string name="lockscreen_clock_category_title">Lockscreen Styles</string>
+    <string name="lockscreen_clock_category_summary">Configure lockscreen clock and styles</string>
+    <string name="custom_clock_style">Custom Clock Style</string>
+
     <!-- Lockscreen widgets  -->
+    <string name="lockscreen_widgets_title">Lockscreen Widgets</string>
+    <string name="lockscreen_widgets_enabled_title">Enable Lockscreen Widgets</string>
+    <string name="lockscreen_widgets_enabled_summary">Add widgets to lockscreen</string>
     <string name="large_widgets_category_title">Big widgets</string>
     <string name="main_custom_widgets1">Big widget 1</string>
     <string name="main_custom_widgets2">Big widget 2</string>

@@ -11,13 +11,6 @@
     <PreferenceCategory
     android:title="@string/general_category">
 
-
-    <com.everest.support.preferences.SystemSettingSwitchPreference
-        android:key="settings_header_image_random"
-        android:title="@string/settings_header_image_random_title"
-        android:summary="@string/settings_header_image_random_summary"
-        android:defaultValue="true" />
-
     <com.everest.support.preferences.SecureSettingSwitchPreference
         android:key="window_ignore_secure"
         android:title="@string/laboratory_ignore_window_secure_title"

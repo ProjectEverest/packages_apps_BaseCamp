@@ -521,16 +521,6 @@
     <string name="status_bar_brightness_control_title">Brightness control</string>
     <string name="status_bar_brightness_control_summary">Adjust brightness by sliding across the status bar</string>
     
-     <!-- Header styles -->
-    <string name="about_header_title">Header style</string>
-    <string name="about_header_blur">BlurView</string>
-    <string name="about_header_scrim">AccentScrim</string>
-    <string name="about_header_none">Clean</string>
-    <string name="about_header_accent">Accent</string>
-    <string name="about_header_random">Slim Random</string>
-    <string name="about_header_lottie1">Lottie1</string>
-    <string name="about_header_lottie2">Lottie2</string>
-    
     <!-- Material dismiss all button for notifications -->
     <string name="notification_material_dismiss_title">Clear all notification button</string>
     <string name="notification_material_dismiss_summary">Replace clear all notification text with material style floating button</string>

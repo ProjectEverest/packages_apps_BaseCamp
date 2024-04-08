@@ -48,6 +48,10 @@ import java.util.List;
 public class SystemSettings extends SettingsPreferenceFragment 
             implements Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_SHAKE_GESTURE_ACTION = "shake_gestures_action";
+
+    private ListPreference mShakeGestureAction;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -55,12 +59,22 @@ public class SystemSettings extends SettingsPreferenceFragment
         PreferenceScreen prefSet = getPreferenceScreen();
         final Resources res = getResources();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        // Shake gesture
+        int shakeAction = Settings.System.getInt(resolver, KEY_SHAKE_GESTURE_ACTION, 0);
+        mShakeGestureAction = initList(KEY_SHAKE_GESTURE_ACTION, shakeAction);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mShakeGestureAction) {
+            handleSystemListChange((ListPreference) preference, newValue,
+                    KEY_SHAKE_GESTURE_ACTION);
+            return true;
+        }
         return false;
-    }  
+    }
 
     @Override
     public int getMetricsCategory() {

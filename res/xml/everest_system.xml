@@ -67,4 +67,35 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="shake_gestures"
+        android:title="@string/gestures_title">
+
+        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:key="shake_gestures_enabled"
+            android:title="@string/shake_gestures_enabled_title"
+            android:summary="@string/shake_gestures_enabled_summary"
+            android:defaultValue="false" />
+
+        <com.everest.basecamp.preferences.SystemSettingListPreference
+            android:key="shake_gestures_action"
+            android:dialogTitle="@string/shake_gestures_action_title"
+            android:title="@string/shake_gestures_action_title"
+            android:entries="@array/shake_gestures_action_entries"
+            android:entryValues="@array/shake_gestures_action_values"
+            android:dependency="shake_gestures_enabled"
+            android:persistent="false" />
+
+         <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
+            android:key="shake_gestures_intensity"
+            android:title="@string/shake_gestures_intensity_title"
+            android:summary="@string/shake_gestures_intensity_summary"
+            android:dependency="shake_gestures_enabled"
+            android:defaultValue="3"
+            settings:interval="1"
+            android:max="12"
+            android:min="1" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

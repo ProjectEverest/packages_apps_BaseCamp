@@ -42,7 +42,7 @@
             android:max="5"
             settings:min="2"
             settings:interval="1"
-            android:defaultValue="2" />
+            android:defaultValue="4" />
 
     <!-- qs tile label size -->
     <com.everest.basecamp.preferences.SystemSettingSeekBarPreference

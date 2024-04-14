@@ -15,4 +15,7 @@
 
     <dimen name="default_margin">16dp</dimen>
     <dimen name="default_padding">16dp</dimen>
+
+    <!-- Oval preview size -->
+    <dimen name="oval_notification_size">26dp</dimen>
 </resources>

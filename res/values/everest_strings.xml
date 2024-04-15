@@ -5,6 +5,16 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Themes -->
+    <string name="themes_fonts_category">Fonts</string>
+    <string name="themes_system_font_title">System Fonts</string>
+    <string name="themes_system_font_summary">Set system font style</string>
+    <string name="themes_icons_category">Icons</string>
+    <string name="themes_system_icons_title">Icon Pack</string>
+    <string name="themes_system_icons_summary">Set system icon style</string>
+    <string name="themes_icon_shape_title">Icon Shapes</string>
+    <string name="themes_icon_shape_summary">Set system icon shape</string>
     
     <!-- General app strings -->
     <string name="basecamp_title">BaseCamp</string>

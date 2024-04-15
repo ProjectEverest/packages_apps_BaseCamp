@@ -20,4 +20,13 @@
         android:title="@string/theme_title"
         settings:layout="@layout/everest_cardview_single_left" />
 
+    <!-- System font -->
+    <Preference
+        android:fragment="com.everest.basecamp.fragments.themes.Fonts"
+        android:icon="@drawable/ic_settings_fonts"
+        android:key="android.theme.customization.fonts"
+        android:summary="@string/themes_system_font_summary"
+        android:title="@string/themes_system_font_title"
+        settings:layout="@layout/everest_cardview_single_right" />
+
 </PreferenceScreen>

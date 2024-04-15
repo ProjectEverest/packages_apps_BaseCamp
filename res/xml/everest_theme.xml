@@ -8,5 +8,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/theme_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
+    
+    <PreferenceCategory
+        android:key="themes_icons_category"
+        android:title="@string/themes_icons_category">
 
+        <!-- System icons -->
+        <Preference
+            android:key="android.theme.customization.icon_pack"
+            android:title="@string/themes_system_icons_title"
+            android:summary="@string/themes_system_icons_summary"
+            android:fragment="com.everest.basecamp.fragments.themes.SystemIcons"/>
+
+        <!-- Icon shape -->
+        <Preference
+            android:key="android.theme.customization.adaptive_icon_shape"
+            android:title="@string/themes_icon_shape_title"
+            android:summary="@string/themes_icon_shape_summary"
+            android:fragment="com.everest.basecamp.fragments.themes.IconShapes"/>
+    </PreferenceCategory>
 </PreferenceScreen>

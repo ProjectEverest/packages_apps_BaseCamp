@@ -33,4 +33,5 @@
     <color name="option_border_default">@color/edit_background_base</color>
     <color name="acc2">@android:color/system_accent2_100</color>
     <color name="acc3">@android:color/system_accent1_600</color>
+    <color name="homepage_everest_background">#0060FF</color>
 </resources>

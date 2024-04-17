@@ -83,6 +83,12 @@
             android:summary="@string/qs_dual_tone_summary"
             android:title="@string/qs_dual_tone_title" />
 
+        <Preference
+            android:fragment="com.everest.basecamp.fragments.QsTileLayoutSettings"
+            android:key="qs_tile_layout"
+            android:summary="@string/qs_tile_layout_summary"
+            android:title="@string/qs_tile_layout_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

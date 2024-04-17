@@ -28,6 +28,7 @@ import android.provider.Settings;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
@@ -44,17 +45,34 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.everest.basecamp.utils.DeviceUtils;
+
 @SearchIndexable
 public class ThemeRoom extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener {
+
+    private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
+    private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
+
+    private PreferenceCategory mIconsCategory;
+    private Preference mSignalIcon;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.everest_theme);
         PreferenceScreen prefSet = getPreferenceScreen();
+        final Context context = getContext();
+        final ContentResolver resolver = context.getContentResolver();
         final Resources res = getResources();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
+        mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
+
+        if (!DeviceUtils.deviceSupportsMobileData(context)) {
+            mIconsCategory.removePreference(mSignalIcon);
+        }
     }
 
     @Override
@@ -79,6 +97,9 @@ public class ThemeRoom extends SettingsPreferenceFragment
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     final List<String> keys = super.getNonIndexableKeys(context);
+                    if (!DeviceUtils.deviceSupportsMobileData(context)) {
+                        keys.add(KEY_SIGNAL_ICON);
+                    }
                     return keys;
                 }
             };

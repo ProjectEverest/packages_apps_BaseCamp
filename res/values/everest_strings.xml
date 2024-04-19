@@ -11,6 +11,11 @@
     <string name="status_bar_tuner_title">Status bar tuner</string>
     <string name="status_bar_tuner_summary">Choose which system icons can be shown</string>
 
+    <!-- Lock screen -->
+    <string name="lock_screen_interface_category">Interface</string>
+    <string name="lock_screen_charging_stats_title">Charging stats</string>
+    <string name="lock_screen_charging_stats_summary">Display current, voltage, wattage, and temperature stats while charging</string>
+
     <!-- Themes -->
     <string name="themes_fonts_category">Fonts</string>
     <string name="themes_system_font_title">System Fonts</string>

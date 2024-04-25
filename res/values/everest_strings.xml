@@ -139,4 +139,8 @@
     <!-- Colored icons -->
     <string name="status_bar_colored_icons_title">Colored icons</string>
     <string name="status_bar_colored_icons_summary">Use launcher icons for app notifications</string>
+
+    <!-- Notification counter -->
+    <string name="status_bar_notif_count_title">Notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of unread notifications on each app icon</string>
 </resources>

@@ -143,4 +143,9 @@
     <!-- Notification counter -->
     <string name="status_bar_notif_count_title">Notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of unread notifications on each app icon</string>
+
+    <!-- Hide on secure lock screen -->
+    <string name="quick_settings_lock_screen_category">Lock screen</string>
+    <string name="quick_settings_secure_lock_screen_title">Hide on secure lock screen</string>
+    <string name="quick_settings_secure_lock_screen_summary">Hide all quick settings in the notification shade while the device is locked</string>
 </resources>

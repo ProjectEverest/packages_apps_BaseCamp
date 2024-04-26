@@ -153,4 +153,9 @@
     <string name="quick_settings_interface_category">Interface</string>
     <string name="quick_settings_floating_clear_all_title">Floating clear all button</string>
     <string name="quick_settings_floating_clear_all_summary">Replace the \'clear all\' text button with a bottom-centered floating one</string>
+
+    <!-- Fingerprint unlock ripple animation -->
+    <string name="lock_screen_fingerprint_category">Fingerprint</string>
+    <string name="lock_screen_fingerprint_ripple_title">Ripple animation</string>
+    <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
 </resources>

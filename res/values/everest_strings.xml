@@ -203,4 +203,9 @@
     <string name="network_traffic_units_megabytes">Megabytes per second (MB/s)</string>
     <string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the network traffic indicator arrows</string>
+
+    <!-- Secure lock screen power menu -->
+    <string name="power_menu_category">Power Button/Menu</string>
+    <string name="power_menu_lock_screen_secure_title">Show on secure lock screen</string>
+    <string name="power_menu_lock_screen_secure_summary">Show the power menu while the device is locked</string>
 </resources>

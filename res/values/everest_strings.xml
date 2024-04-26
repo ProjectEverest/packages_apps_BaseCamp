@@ -158,4 +158,9 @@
     <string name="lock_screen_fingerprint_category">Fingerprint</string>
     <string name="lock_screen_fingerprint_ripple_title">Ripple animation</string>
     <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
+
+    <!-- Alert while display on -->
+    <string name="notifications_sounds_vibration_category">Sounds &amp; vibration</string>
+    <string name="notifications_alert_display_on_title">Alert while display on</string>
+    <string name="notifications_alert_display_on_summary">Play sound and vibration for notifications while the display is on</string>
 </resources>

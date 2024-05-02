@@ -12,6 +12,13 @@
         android:key="power_menu_category"
         android:title="@string/power_menu_category">
 
+        <!-- Power menu actions -->
+        <Preference
+            android:key="power_menu_actions"
+            android:title="@string/power_menu_actions_title"
+            android:summary="@string/power_menu_actions_summary"
+            android:fragment="com.everest.basecamp.fragments.powermenu.PowerMenuActions" />
+
         <!-- Secure lock screen power menu -->
         <com.everest.basecamp.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_enable_power_menu"

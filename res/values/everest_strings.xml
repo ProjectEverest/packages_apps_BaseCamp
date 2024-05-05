@@ -227,4 +227,12 @@
     <string name="power_menu_actions_logout_title">Logout</string>
     <string name="power_menu_actions_emergency_title">Emergency</string>
     <string name="power_menu_actions_devicecontrols_title">Device controls</string>
+
+    <!-- Quick pull down -->
+    <string name="status_bar_quick_pull_down_title">Quick pull down</string>
+    <string name="status_bar_quick_pull_down_summary">%1$s of the status bar pulls down quick settings</string>
+    <string name="status_bar_quick_pull_down_off">Off</string>
+    <string name="status_bar_quick_pull_down_right">Right side</string>
+    <string name="status_bar_quick_pull_down_left">Left side</string>
+    <string name="status_bar_quick_pull_down_both">Both sides</string>
 </resources>

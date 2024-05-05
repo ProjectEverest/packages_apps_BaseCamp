@@ -12,6 +12,14 @@
         android:key="quick_settings_interface_category"
         android:title="@string/quick_settings_interface_category">
 
+        <!-- Quick pull down -->
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="qs_quick_pulldown"
+            android:title="@string/status_bar_quick_pull_down_title"
+            android:entries="@array/status_bar_quick_pull_down_entries"
+            android:entryValues="@array/status_bar_quick_pull_down_values"
+            android:defaultValue="0" />
+
         <!-- Floating clear all -->
         <com.everest.basecamp.preferences.SystemSettingSwitchPreference
             android:key="notification_material_dismiss"

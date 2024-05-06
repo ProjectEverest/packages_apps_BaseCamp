@@ -29,6 +29,18 @@
 
      </PreferenceCategory>
 
+
+     <PreferenceCategory
+        android:title="Depth Wallpaper">
+
+        <Preference
+            android:key="depth_wallpaper"
+            android:title="@string/dw_wallpaper_enabled_title"
+            android:summary="@string/dw_wallpaper_enabled_summary"
+            android:fragment="com.everest.basecamp.fragments.WallpaperDepth" />
+
+     </PreferenceCategory>
+
     <PreferenceCategory
         android:key="lock_screen_interface_category"
         android:title="@string/lock_screen_interface_category">

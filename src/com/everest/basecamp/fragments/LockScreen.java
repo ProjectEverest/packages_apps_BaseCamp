@@ -16,10 +16,13 @@
 
 package com.everest.basecamp.fragments;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -124,6 +127,7 @@ public class LockScreen extends SettingsPreferenceFragment
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.EVEREST;
     }
+
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override

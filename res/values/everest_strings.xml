@@ -235,4 +235,8 @@
     <string name="status_bar_quick_pull_down_right">Right side</string>
     <string name="status_bar_quick_pull_down_left">Left side</string>
     <string name="status_bar_quick_pull_down_both">Both sides</string>
+
+    <!-- Data disabled icon -->
+    <string name="status_bar_data_disabled_icon_title">Data disabled indicator</string>
+    <string name="status_bar_data_disabled_icon_summary">Display an indicator next to signal icon when data is disabled</string>
 </resources>

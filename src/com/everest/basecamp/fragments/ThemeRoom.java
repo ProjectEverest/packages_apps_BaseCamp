@@ -20,6 +20,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
@@ -34,6 +35,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.everest.Utils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -53,9 +55,13 @@ public class ThemeRoom extends SettingsPreferenceFragment
 
     private static final String KEY_ICONS_CATEGORY = "themes_icons_category";
     private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
+    private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
+    private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
 
     private PreferenceCategory mIconsCategory;
     private Preference mSignalIcon;
+    private PreferenceCategory mAnimationsCategory;
+    private Preference mUdfpsAnimation;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -70,8 +76,22 @@ public class ThemeRoom extends SettingsPreferenceFragment
         mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
         mSignalIcon = (Preference) findPreference(KEY_SIGNAL_ICON);
 
+        mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
+        mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
+
         if (!DeviceUtils.deviceSupportsMobileData(context)) {
             mIconsCategory.removePreference(mSignalIcon);
+        }
+
+        FingerprintManager fingerprintManager = (FingerprintManager)
+                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+
+        if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+            mAnimationsCategory.removePreference(mUdfpsAnimation);
+        } else {
+            if (!Utils.isPackageInstalled(context, "com.everest.udfps.animations")) {
+                mAnimationsCategory.removePreference(mUdfpsAnimation);
+            }
         }
     }
 
@@ -97,8 +117,20 @@ public class ThemeRoom extends SettingsPreferenceFragment
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     final List<String> keys = super.getNonIndexableKeys(context);
+                    final Resources resources = context.getResources();
+
+                    FingerprintManager fingerprintManager = (FingerprintManager)
+                            context.getSystemService(Context.FINGERPRINT_SERVICE);
                     if (!DeviceUtils.deviceSupportsMobileData(context)) {
                         keys.add(KEY_SIGNAL_ICON);
+                    }
+
+                    if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+                        keys.add(KEY_UDFPS_ANIMATION);
+                    } else {
+                        if (!Utils.isPackageInstalled(context, "com.everest.udfps.animations")) {
+                            keys.add(KEY_UDFPS_ANIMATION);
+                        }
                     }
                     return keys;
                 }

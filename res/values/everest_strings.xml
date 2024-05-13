@@ -598,4 +598,9 @@
     <string name="pulse_custom_div">Bar spacing</string>
     <string name="pulse_filled_block_size">Block size</string>
     <string name="pulse_empty_block_size">Block spacing</string>
+
+    <!-- Udfps animation -->
+    <string name="themes_animations_category">Udfps Animations and Icons</string>
+    <string name="themes_udfps_animation_title">UDFPS animation</string>
+    <string name="themes_udfps_animation_summary">Set UDFPS animation style</string>
 </resources>

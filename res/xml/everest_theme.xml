@@ -53,6 +53,13 @@
             android:summary="@string/themes_udfps_animation_summary"
             android:fragment="com.everest.basecamp.fragments.themes.UdfpsAnimations" />
 
+        <!-- Udfps icon -->
+        <Preference
+            android:key="udfps_icon"
+            android:title="@string/themes_udfps_icon_title"
+            android:summary="@string/themes_udfps_icon_summary"
+            android:fragment="com.everest.basecamp.fragments.themes.UdfpsIcons" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

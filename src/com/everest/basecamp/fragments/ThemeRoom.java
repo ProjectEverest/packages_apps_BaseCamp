@@ -57,11 +57,13 @@ public class ThemeRoom extends SettingsPreferenceFragment
     private static final String KEY_SIGNAL_ICON = "android.theme.customization.signal_icon";
     private static final String KEY_ANIMATIONS_CATEGORY = "themes_animations_category";
     private static final String KEY_UDFPS_ANIMATION = "udfps_animation";
+    private static final String KEY_UDFPS_ICON = "udfps_icon";
 
     private PreferenceCategory mIconsCategory;
     private Preference mSignalIcon;
     private PreferenceCategory mAnimationsCategory;
     private Preference mUdfpsAnimation;
+    private Preference mUdfpsIcon;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -78,6 +80,7 @@ public class ThemeRoom extends SettingsPreferenceFragment
 
         mAnimationsCategory = (PreferenceCategory) findPreference(KEY_ANIMATIONS_CATEGORY);
         mUdfpsAnimation = (Preference) findPreference(KEY_UDFPS_ANIMATION);
+        mUdfpsIcon = (Preference) findPreference(KEY_UDFPS_ICON);
 
         if (!DeviceUtils.deviceSupportsMobileData(context)) {
             mIconsCategory.removePreference(mSignalIcon);
@@ -88,9 +91,13 @@ public class ThemeRoom extends SettingsPreferenceFragment
 
         if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
             mAnimationsCategory.removePreference(mUdfpsAnimation);
+            mAnimationsCategory.removePreference(mUdfpsIcon);
         } else {
             if (!Utils.isPackageInstalled(context, "com.everest.udfps.animations")) {
                 mAnimationsCategory.removePreference(mUdfpsAnimation);
+            }
+            if (!Utils.isPackageInstalled(context, "com.everest.udfps.icons")) {
+                mAnimationsCategory.removePreference(mUdfpsIcon);
             }
         }
     }
@@ -123,6 +130,7 @@ public class ThemeRoom extends SettingsPreferenceFragment
                             context.getSystemService(Context.FINGERPRINT_SERVICE);
                     if (!DeviceUtils.deviceSupportsMobileData(context)) {
                         keys.add(KEY_SIGNAL_ICON);
+                        keys.add(KEY_UDFPS_ICON);
                     }
 
                     if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
@@ -130,6 +138,9 @@ public class ThemeRoom extends SettingsPreferenceFragment
                     } else {
                         if (!Utils.isPackageInstalled(context, "com.everest.udfps.animations")) {
                             keys.add(KEY_UDFPS_ANIMATION);
+                        }
+                        if (!Utils.isPackageInstalled(context, "com.everest.udfps.icons")) {
+                            keys.add(KEY_UDFPS_ICON);
                         }
                     }
                     return keys;

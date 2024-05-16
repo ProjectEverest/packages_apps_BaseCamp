@@ -657,4 +657,8 @@
     <string name="qs_header_needs_gallery">You must install a gallery app!</string>
     <string name="qs_header_offset_title">Header image offset</string>
     <string name="qs_header_offset_summary">Adjust the image header size</string>
+
+    <!-- Screen-Off UDFPS -->
+    <string name="lock_screen_screen_off_udfps_title">Screen-Off UDFPS</string>
+    <string name="lock_screen_screen_off_udfps_summary">Keep UDFPS enabled while the screen is off</string>
 </resources>

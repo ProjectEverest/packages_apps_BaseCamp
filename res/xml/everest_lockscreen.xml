@@ -50,5 +50,12 @@
             android:title="@string/lock_screen_fingerprint_error_vibration_title"
             android:summary="@string/lock_screen_fingerprint_error_vibration_summary"
             android:defaultValue="true" />
+
+        <!-- Screen-Off UDFPS -->
+        <com.everest.basecamp.preferences.SecureSettingSwitchPreference
+            android:key="screen_off_udfps_enabled"
+            android:title="@string/lock_screen_screen_off_udfps_title"
+            android:summary="@string/lock_screen_screen_off_udfps_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 </PreferenceScreen>

@@ -243,4 +243,8 @@
     <!-- 4G icon -->
     <string name="status_bar_4g_icon_title">4G icon</string>
     <string name="status_bar_4g_icon_summary">Replace \'LTE\' icon with \'4G\'</string>
+
+    <!-- Secure QS tiles require unlock -->
+    <string name="quick_settings_require_unlock_title">Secure QS tiles require unlock</string>
+    <string name="quick_settings_require_unlock_summary">The following quick settings require the device to be unlocked before you can interact with them:\nAirplane, Battery saver, Bluetooth, Cellular, Data saver, Hotspot, Internet, NFC, Rotation lock, and Wi-Fi</string>
 </resources>

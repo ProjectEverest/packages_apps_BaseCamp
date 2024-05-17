@@ -36,6 +36,12 @@
             android:title="@string/system_buttons_title"
             android:summary="@string/system_buttons_summary" />
 
+    <com.everest.basecamp.preferences.SecureSettingSwitchPreference
+        android:key="volume_show_volume_percent"
+        android:title="@string/volume_show_volume_percent_title"
+        android:summary="@string/volume_show_volume_percent_summary"
+        android:defaultValue="true"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory

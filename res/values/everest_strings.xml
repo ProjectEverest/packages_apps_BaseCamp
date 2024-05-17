@@ -826,4 +826,8 @@
     <string name="lockscreen_custom_image_summary">Set custom lockscreen AOD image</string>
     <string name="lockscreen_custom_image_pick_summary">Select AOD image from gallery</string>
     <string name="custom_aod_image_not_supported">Clock style not supported</string>
+
+    <!-- Volume Row Percent -->
+    <string name="volume_show_volume_percent_title">Show Volume Row Percentage</string>
+    <string name="volume_show_volume_percent_summary">Show volume row progress percentage</string>
 </resources>

@@ -286,4 +286,8 @@
     <string name="status_bar_clock_date_position">Date position</string>
     <string name="status_bar_clock_date_right">Right of time</string>
     <string name="status_bar_clock_date_left">Left of time</string>
+
+    <!-- Statusbar Clock BG chip -->
+    <string name="status_bar_clock_chip_title">Background chip</string>
+    <string name="status_bar_clock_chip_summary">Display accented chip behind clock</string>
 </resources>

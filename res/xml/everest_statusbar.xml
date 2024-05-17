@@ -32,6 +32,13 @@
                 <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
 
+        <!-- Clock & date -->
+        <Preference
+            android:key="clock"
+            android:title="@string/status_bar_clock_and_date_title"
+            android:summary="@string/status_bar_clock_and_date_summary"
+            android:fragment="com.everest.basecamp.fragments.statusbar.Clock" />
+
         <!-- Data disabled icon -->
         <com.everest.basecamp.preferences.SystemSettingSwitchPreference
             android:key="data_disabled_icon"

@@ -29,6 +29,35 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="brightness_slider_category"
+        android:title="@string/brightness_slider_category">
+
+        <!-- Brightness slider -->
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:defaultValue="1"
+            android:entries="@array/quick_settings_show_brightness_slider_entries"
+            android:entryValues="@array/quick_settings_show_brightness_slider_values"
+            android:key="qs_show_brightness_slider"
+            android:title="@string/quick_settings_show_brightness_slider_title" />
+
+        <!-- Brightness slider position -->
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:defaultValue="0"
+            android:entries="@array/quick_settings_brightness_slider_position_entries"
+            android:entryValues="@array/quick_settings_brightness_slider_position_values"
+            android:key="qs_brightness_slider_position"
+            android:title="@string/quick_settings_brightness_slider_position_title" />
+
+        <!-- Auto brightness icon -->
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:defaultValue="true"
+            android:key="qs_show_auto_brightness"
+            android:summary="@string/quick_settings_auto_brightness_icon_summary"
+            android:title="@string/quick_settings_auto_brightness_icon_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="quick_settings_lock_screen_category"
         android:title="@string/quick_settings_lock_screen_category">
 

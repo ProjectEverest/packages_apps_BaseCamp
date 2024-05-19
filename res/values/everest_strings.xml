@@ -351,4 +351,8 @@
     <string name="quick_settings_brightness_slider_position_bottom">Bottom</string>
     <string name="quick_settings_auto_brightness_icon_title">Auto brightness icon</string>
     <string name="quick_settings_auto_brightness_icon_summary">Show icon toggle for adaptive brightness next to the slider</string>
+
+    <!-- Wi-Fi standard icon -->
+    <string name="status_bar_wifi_standard_icon_title">Wi-Fi standard</string>
+    <string name="status_bar_wifi_standard_icon_summary">Display Wi-Fi standard next the Wi-Fi icon</string>
 </resources>

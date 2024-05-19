@@ -29,6 +29,7 @@ import android.view.View;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
@@ -45,18 +46,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import lineageos.preference.LineageSecureSettingListPreference;
+import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.preference.LineageSystemSettingListPreference;
+import lineageos.providers.LineageSettings;
 
 @SearchIndexable
 public class QuickSettings extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_INTERFACE_CATEGORY = "quick_settings_interface_category";
     private static final String KEY_QUICK_PULLDOWN = "qs_quick_pulldown";
+    private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
+    private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
+    private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
     private static final int PULLDOWN_DIR_BOTH = 3;
+
+    private PreferenceCategory mInterfaceCategory;
+    private LineageSecureSettingListPreference mShowBrightnessSlider;
+    private LineageSecureSettingListPreference mBrightnessSliderPosition;
+    private LineageSecureSettingSwitchPreference mShowAutoBrightness;
 
     private LineageSystemSettingListPreference mQuickPulldown;
     @Override
@@ -75,6 +88,24 @@ public class QuickSettings extends SettingsPreferenceFragment
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
+        mShowBrightnessSlider = (LineageSecureSettingListPreference) findPreference(KEY_SHOW_BRIGHTNESS_SLIDER);
+        mBrightnessSliderPosition = (LineageSecureSettingListPreference) findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
+        mShowAutoBrightness = (LineageSecureSettingSwitchPreference) findPreference(KEY_SHOW_AUTO_BRIGHTNESS);
+
+        mShowBrightnessSlider.setOnPreferenceChangeListener(this);
+        boolean showSlider = LineageSettings.Secure.getIntForUser(resolver,
+                LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT) > 0;
+
+        mBrightnessSliderPosition.setEnabled(showSlider);
+
+        boolean autoBrightnessAvailable = res.getBoolean(
+                com.android.internal.R.bool.config_automatic_brightness_available);
+        if (autoBrightnessAvailable) {
+            mShowAutoBrightness.setEnabled(showSlider);
+        } else {
+            mInterfaceCategory.removePreference(mShowAutoBrightness);
+        }
+
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             mQuickPulldown.setEntries(R.array.status_bar_quick_pull_down_entries_rtl);
             mQuickPulldown.setEntryValues(R.array.status_bar_quick_pull_down_values_rtl);
@@ -88,6 +119,12 @@ public class QuickSettings extends SettingsPreferenceFragment
         if (preference == mQuickPulldown) {
             int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
+            return true;
+        } else if (preference == mShowBrightnessSlider) {
+            int value = Integer.parseInt((String) newValue);
+            mBrightnessSliderPosition.setEnabled(value > 0);
+            if (mShowAutoBrightness != null)
+                mShowAutoBrightness.setEnabled(value > 0);
             return true;
         }
         return false;
@@ -135,6 +172,12 @@ public class QuickSettings extends SettingsPreferenceFragment
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     final List<String> keys = super.getNonIndexableKeys(context);
+                    final Resources res = context.getResources();
+                    boolean autoBrightnessAvailable = res.getBoolean(
+                            com.android.internal.R.bool.config_automatic_brightness_available);
+                    if (!autoBrightnessAvailable) {
+                        keys.add(KEY_SHOW_AUTO_BRIGHTNESS);
+                    }
                     return keys;
                 }
             };

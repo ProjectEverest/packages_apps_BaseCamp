@@ -46,6 +46,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.everest.basecamp.utils.DeviceUtils;
 import lineageos.preference.LineageSecureSettingListPreference;
 import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.preference.LineageSystemSettingListPreference;
@@ -60,6 +61,8 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
     private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
+    private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
+    private static final String KEY_BLUETOOTH_AUTO_ON = "qs_bt_auto_on";
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
@@ -70,8 +73,9 @@ public class QuickSettings extends SettingsPreferenceFragment
     private LineageSecureSettingListPreference mShowBrightnessSlider;
     private LineageSecureSettingListPreference mBrightnessSliderPosition;
     private LineageSecureSettingSwitchPreference mShowAutoBrightness;
-
+    private PreferenceCategory mMiscellaneousCategory;
     private LineageSystemSettingListPreference mQuickPulldown;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -106,9 +110,15 @@ public class QuickSettings extends SettingsPreferenceFragment
             mInterfaceCategory.removePreference(mShowAutoBrightness);
         }
 
+        mMiscellaneousCategory = (PreferenceCategory) findPreference(KEY_MISCELLANEOUS_CATEGORY);
+
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
             mQuickPulldown.setEntries(R.array.status_bar_quick_pull_down_entries_rtl);
             mQuickPulldown.setEntryValues(R.array.status_bar_quick_pull_down_values_rtl);
+        }
+
+        if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+            prefScreen.removePreference(mMiscellaneousCategory);
         }
     }
 
@@ -177,6 +187,9 @@ public class QuickSettings extends SettingsPreferenceFragment
                             com.android.internal.R.bool.config_automatic_brightness_available);
                     if (!autoBrightnessAvailable) {
                         keys.add(KEY_SHOW_AUTO_BRIGHTNESS);
+                    }
+                    if (!DeviceUtils.deviceSupportsBluetooth(context)) {
+                        keys.add(KEY_BLUETOOTH_AUTO_ON);
                     }
                     return keys;
                 }

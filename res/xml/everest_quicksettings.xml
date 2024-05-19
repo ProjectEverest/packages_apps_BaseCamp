@@ -76,4 +76,15 @@
             android:defaultValue="true"/>
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="quick_settings_miscellaneous_category"
+        android:title="@string/quick_settings_miscellaneous_category">
+
+        <!-- Bluetooth auto on -->
+        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:key="qs_bt_auto_on"
+            android:title="@string/quick_settings_bluetooth_auto_on_title"
+            android:summary="@string/quick_settings_bluetooth_auto_on_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 </PreferenceScreen>

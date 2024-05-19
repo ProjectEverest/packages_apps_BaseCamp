@@ -355,4 +355,9 @@
     <!-- Wi-Fi standard icon -->
     <string name="status_bar_wifi_standard_icon_title">Wi-Fi standard</string>
     <string name="status_bar_wifi_standard_icon_summary">Display Wi-Fi standard next the Wi-Fi icon</string>
+
+    <!-- Bluetooth auto on -->
+    <string name="quick_settings_miscellaneous_category">Miscellaneous</string>
+    <string name="quick_settings_bluetooth_auto_on_title">Bluetooth auto on</string>
+    <string name="quick_settings_bluetooth_auto_on_summary">Automatically enable Bluetooth when opening its quick settings dialog</string>
 </resources>

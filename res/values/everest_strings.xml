@@ -894,4 +894,6 @@
     <string name="shake_gestures_intensity_title">Shake Gestures Intensity</string>
     <string name="shake_gestures_intensity_summary">Adjust the sensitivity of shake gestures</string>
     <string name="hardware_keys_action_close_app">Kill app</string>
+    <string name="hardware_keys_action_search">Search assistant</string>
+    <string name="hardware_keys_action_voice_search">Voice search</string>
 </resources>

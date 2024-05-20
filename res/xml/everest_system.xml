@@ -96,6 +96,15 @@
             android:max="12"
             android:min="1" />
 
+        <!-- Three-fingers-swipe gestures -->
+        <com.everest.basecamp.preferences.SystemSettingListPreference
+            android:key="three_finger_gesture_action"
+            android:title="@string/three_finger_gesture_action_title"
+            android:summary="%s"
+            android:dialogTitle="@string/three_finger_gesture_action_dialog_title"
+            android:entries="@array/shake_gestures_action_entries"
+            android:entryValues="@array/shake_gestures_action_values"
+            android:defaultValue="0" />
     </PreferenceCategory>
 
 </PreferenceScreen>

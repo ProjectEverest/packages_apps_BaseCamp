@@ -721,6 +721,8 @@
         <item>@string/shake_gestures_toggle_ringer</item>
         <item>@string/shake_gestures_screenshot</item>
         <item>@string/hardware_keys_action_close_app</item>
+        <item>@string/hardware_keys_action_search</item>
+        <item>@string/hardware_keys_action_voice_search</item>
     </string-array>
 
     <string-array name="shake_gestures_action_values" translatable="false">
@@ -733,6 +735,8 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
 
 </resources>

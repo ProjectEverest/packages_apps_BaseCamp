@@ -40,7 +40,7 @@ import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.everest.OmniJawsClient;
-
+import com.android.internal.util.everest.SystemRestartUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -63,11 +63,13 @@ public class LockScreen extends SettingsPreferenceFragment
     private static final String KEY_AUTHENTICATION_ERROR = "fp_error_vibrate";
     private static final String KEY_SCREEN_OFF_UDFPS = "screen_off_udfps_enabled";
     private static final String KEY_WEATHER = "lockscreen_weather_enabled";
+    private static final String KEY_KG_USER_SWITCHER= "kg_user_switcher_enabled";
 
     private PreferenceCategory mFingerprintCategory;
     private SecureSettingSwitchPreference mScreenOffUdfps;
     private Preference mWeather;
     private OmniJawsClient mWeatherClient;
+    private Preference mUserSwitcher;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -86,6 +88,8 @@ public class LockScreen extends SettingsPreferenceFragment
         mWeather = (Preference) findPreference(KEY_WEATHER);
         mWeatherClient = new OmniJawsClient(getContext());
         updateWeatherSettings();
+        mUserSwitcher = (Preference) findPreference(KEY_KG_USER_SWITCHER);
+        mUserSwitcher.setOnPreferenceChangeListener(this);
 
         if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
             prefScreen.removePreference(mFingerprintCategory);
@@ -105,6 +109,10 @@ public class LockScreen extends SettingsPreferenceFragment
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
+        if (preference == mUserSwitcher) {
+            SystemRestartUtils.showSystemUIRestartDialog(getContext());
+            return true;
+        }
         return false;
     }
 

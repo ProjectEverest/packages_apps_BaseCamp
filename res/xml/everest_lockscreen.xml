@@ -58,6 +58,12 @@
             android:summary="@string/lock_screen_charging_stats_summary"
             android:defaultValue="true" />
 
+        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:key="kg_user_switcher_enabled"
+            android:title="@string/kg_user_switcher_enabled_title"
+            android:summary="@string/kg_user_switcher_enabled_summary"
+            android:defaultValue="false" />
+
         <Preference
             android:key="pulse_settings"
             android:title="@string/lock_screen_pulse_settings_title"

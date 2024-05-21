@@ -17,6 +17,13 @@
         android:summary="@string/charging_animation_summary"
         android:defaultValue="true" />
 
+    <!-- Multi user avatar on homepage -->
+    <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+        android:key="show_multi_user_avatar_on_homepage"
+        android:title="@string/show_multi_user_avatar_on_homepage_title"
+        android:summary="@string/show_multi_user_avatar_on_homepage_summary"
+        android:defaultValue="true" />
+    
     </PreferenceCategory>
 
     <PreferenceCategory

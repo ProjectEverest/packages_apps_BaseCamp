@@ -20,6 +20,13 @@
             android:entryValues="@array/status_bar_quick_pull_down_values"
             android:defaultValue="0" />
 
+        <!-- Data usage -->
+        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_data_usage"
+            android:title="@string/quick_settings_data_usage_title"
+            android:summary="@string/quick_settings_data_usage_summary"
+            android:defaultValue="false" />
+
         <!-- Floating clear all -->
         <com.everest.basecamp.preferences.SystemSettingSwitchPreference
             android:key="notification_material_dismiss"

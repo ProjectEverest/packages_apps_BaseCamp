@@ -35,6 +35,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.everest.SystemRestartUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -66,6 +67,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
     private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
     private static final String KEY_BLUETOOTH_AUTO_ON = "qs_bt_auto_on";
+    private static final String KEY_QS_COMPACT_PLAYER  = "qs_compact_media_player_mode";
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
@@ -78,6 +80,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private LineageSecureSettingSwitchPreference mShowAutoBrightness;
     private PreferenceCategory mMiscellaneousCategory;
     private LineageSystemSettingListPreference mQuickPulldown;
+    private Preference mQsCompactPlayer;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -123,6 +126,9 @@ public class QuickSettings extends SettingsPreferenceFragment
         if (!DeviceUtils.deviceSupportsBluetooth(context)) {
             prefScreen.removePreference(mMiscellaneousCategory);
         }
+
+        mQsCompactPlayer = (Preference) findPreference(KEY_QS_COMPACT_PLAYER);
+        mQsCompactPlayer.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -138,6 +144,9 @@ public class QuickSettings extends SettingsPreferenceFragment
             mBrightnessSliderPosition.setEnabled(value > 0);
             if (mShowAutoBrightness != null)
                 mShowAutoBrightness.setEnabled(value > 0);
+            return true;
+        } else if (preference == mQsCompactPlayer) {
+            SystemRestartUtils.showSystemUIRestartDialog(getActivity());
             return true;
         }
         return false;

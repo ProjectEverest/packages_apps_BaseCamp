@@ -12,6 +12,13 @@
         android:key="notifications_interface_category"
         android:title="@string/notifications_interface_category">
 
+        <!-- Edge light -->
+        <Preference
+            android:key="edge_light_settings"
+            android:title="@string/notifications_edge_light_title"
+            android:summary="@string/notifications_edge_light_summary"
+            android:fragment="com.everest.basecamp.fragments.notifications.EdgeLightSettings" />
+
         <!-- Kill app button -->
         <com.everest.basecamp.preferences.SystemSettingSwitchPreference
             android:key="notification_guts_kill_app_button"

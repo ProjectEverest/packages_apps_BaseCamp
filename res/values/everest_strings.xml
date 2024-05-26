@@ -905,4 +905,8 @@
     <string name="hardware_keys_action_voice_search">Voice search</string>
     <string name="three_finger_long_press_action_title">Three Finger Long Press Gestures</string>
     <string name="three_finger_long_press_action_dialog_title">Swipe Three Finger Gestures Actions</string>
+
+    <!-- Volume Sound Haptics -->
+    <string name="volume_sound_haptics_title">Volume sound haptics</string>
+    <string name="volume_sound_haptics_summary">Enable sound feedback when adjusting volume row progress</string>
 </resources>

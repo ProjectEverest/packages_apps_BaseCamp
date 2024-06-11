@@ -55,6 +55,13 @@
             android:summary="@string/miscellaneous_unlimit_screenrecord_summary"
             android:defaultValue="false" />
 
+        <!-- Block wallpaper dimming -->
+        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:key="block_wallpaper_dimming"
+            android:title="@string/miscellaneous_block_wallpaper_dimming_title"
+            android:summary="@string/miscellaneous_block_wallpaper_dimming_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

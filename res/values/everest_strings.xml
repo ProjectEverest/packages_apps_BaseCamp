@@ -1009,4 +1009,17 @@
     <!-- QS split shade -->
     <string name="qs_split_shade_title">Split Shade</string>
     <string name="qs_split_shade_summary">Split QS layout in landscape mode</string>
+
+    <!-- Media art -->
+    <string name="media_art_title">Media cover art</string>
+    <string name="media_art_summary">Display media cover art when available</string>
+
+    <!-- Lockscreen album art filter -->
+    <string name="lockscreen_albumart_filter_title">Media cover art filter</string>
+    <string name="lockscreen_albumart_filter_none">None</string>
+    <string name="lockscreen_albumart_filter_blur">Blur</string>
+
+    <!-- Media Art Fade level --> 
+    <string name="ls_media_art_fade_level_title">Media cover art fade level</string>
+    <string name="ls_media_art_fade_level_summary">Set media cover art fade level</string>
 </resources>

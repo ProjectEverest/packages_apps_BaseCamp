@@ -721,8 +721,8 @@
     <string name="lockscreen_clock_title">Lockscreen clock/Styles</string>
 
     <!-- Custom Fonts -->
-    <string name="theme_customization_lock_clock_title">Lockscreen clock font</string>
-    <string name="theme_customization_lock_clock_summary">Set LS clock font style</string>
+    <string name="theme_customization_lock_clock_title">Clock face</string>
+    <string name="theme_customization_lock_clock_summary">Modify lockscreen clock appearance</string>
 
     <!-- Weather -->
     <string name="weather_category_title">Weather</string>
@@ -801,4 +801,7 @@
 
     <!-- Apply Button --> 
     <string name="apply_change_button_title">Apply</string>
+
+    <!-- Lockscreen Clock Revamp --> 
+    <string name="ls_clock_custom_font_not_supported">Selected clock does not support custom fonts</string>
 </resources>

@@ -43,8 +43,11 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.android.internal.util.everest.ThemeUtils;
+
 import com.everest.basecamp.fragments.quicksettings.QsHeaderImageSettings;
 import com.everest.basecamp.preferences.SystemSettingListPreference;
+import com.everest.basecamp.utils.ResourceUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,6 +71,14 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String KEY_MISCELLANEOUS_CATEGORY = "quick_settings_miscellaneous_category";
     private static final String KEY_BLUETOOTH_AUTO_ON = "qs_bt_auto_on";
     private static final String KEY_QS_COMPACT_PLAYER  = "qs_compact_media_player_mode";
+    private static final String KEY_QS_SPLIT_SHADE = "qs_split_shade";
+
+    private static final String QS_SPLIT_SHADE_LAYOUT_CTG = "android.theme.customization.qs_landscape_layout";
+    private static final String QS_SPLIT_SHADE_LAYOUT_PKG = "com.android.systemui.qs.landscape.split_shade_layout";
+    private static final String QS_SPLIT_SHADE_LAYOUT_TARGET = "com.android.systemui";
+    private static final String QS_SPLIT_SHADE_CUTOUT_CTG = "android.theme.customization.qs_landscape_cutout";
+    private static final String QS_SPLIT_SHADE_CUTOUT_PKG = "android.landscape.split_shade_cutout";
+    private static final String QS_SPLIT_SHADE_CUTOUT_TARGET = "android";
 
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
@@ -81,12 +92,19 @@ public class QuickSettings extends SettingsPreferenceFragment
     private PreferenceCategory mMiscellaneousCategory;
     private LineageSystemSettingListPreference mQuickPulldown;
     private Preference mQsCompactPlayer;
+    private SwitchPreferenceCompat mSplitShade;
+
+    private ThemeUtils mThemeUtils;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.everest_quicksettings);
         PreferenceScreen prefSet = getPreferenceScreen();
+
+        final Context mContext = getActivity().getApplicationContext();
+
+        mThemeUtils = new ThemeUtils(mContext);
 
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
@@ -129,6 +147,11 @@ public class QuickSettings extends SettingsPreferenceFragment
 
         mQsCompactPlayer = (Preference) findPreference(KEY_QS_COMPACT_PLAYER);
         mQsCompactPlayer.setOnPreferenceChangeListener(this);
+
+        mSplitShade = findPreference(KEY_QS_SPLIT_SHADE);
+        boolean ssEnabled = isSplitShadeEnabled();
+        mSplitShade.setChecked(ssEnabled);
+        mSplitShade.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -147,6 +170,9 @@ public class QuickSettings extends SettingsPreferenceFragment
             return true;
         } else if (preference == mQsCompactPlayer) {
             SystemRestartUtils.showSystemUIRestartDialog(getActivity());
+            return true;
+        } else if (preference == mSplitShade) {
+            updateSplitShadeState(((Boolean) newValue).booleanValue());
             return true;
         }
         return false;
@@ -175,6 +201,32 @@ public class QuickSettings extends SettingsPreferenceFragment
                 break;
         }
         mQuickPulldown.setSummary(summary);
+    }
+
+    private boolean isSplitShadeEnabled() {
+        return mThemeUtils.isOverlayEnabled(QS_SPLIT_SHADE_LAYOUT_PKG)
+            && mThemeUtils.isOverlayEnabled(QS_SPLIT_SHADE_CUTOUT_PKG);
+    }
+
+    private void updateSplitShadeState(boolean enable) {
+
+        mThemeUtils.setOverlayEnabled(
+                QS_SPLIT_SHADE_LAYOUT_CTG,
+                enable ? QS_SPLIT_SHADE_LAYOUT_PKG : QS_SPLIT_SHADE_LAYOUT_TARGET,
+                QS_SPLIT_SHADE_LAYOUT_TARGET);
+
+        mThemeUtils.setOverlayEnabled(
+                QS_SPLIT_SHADE_CUTOUT_CTG,
+                enable ? QS_SPLIT_SHADE_CUTOUT_PKG : QS_SPLIT_SHADE_CUTOUT_TARGET,
+                QS_SPLIT_SHADE_CUTOUT_TARGET);
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        ResourceUtils.updateOverlay(mContext, QS_SPLIT_SHADE_LAYOUT_CTG, QS_SPLIT_SHADE_LAYOUT_TARGET,
+                QS_SPLIT_SHADE_LAYOUT_TARGET);
+        ResourceUtils.updateOverlay(mContext, QS_SPLIT_SHADE_CUTOUT_CTG, QS_SPLIT_SHADE_CUTOUT_TARGET,
+                QS_SPLIT_SHADE_CUTOUT_TARGET);
     }
 
     @Override

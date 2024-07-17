@@ -81,6 +81,12 @@
             android:summary="@string/brightness_percent_summary"
             android:defaultValue="false" />
 
+        <SwitchPreferenceCompat
+            android:key="qs_split_shade"
+            android:title="@string/qs_split_shade_title"
+            android:summary="@string/qs_split_shade_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

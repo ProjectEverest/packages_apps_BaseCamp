@@ -804,4 +804,7 @@
 
     <!-- Lockscreen Clock Revamp --> 
     <string name="ls_clock_custom_font_not_supported">Selected clock does not support custom fonts</string>
+
+    <!-- Lockscreen Clock Highlight Guide --> 
+    <string name="ls_clock_face_highlight_text">Swipe left or right to preview clock styles</string>
 </resources>

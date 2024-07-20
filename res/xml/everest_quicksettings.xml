@@ -92,6 +92,12 @@
     <PreferenceCategory
         android:title="@string/qs_cust_category">
 
+        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
+            android:key="qs_widgets_enabled"
+            android:title="@string/qs_widgets_enabled_title"
+            android:summary="@string/qs_widgets_enabled_summary"
+            android:defaultValue="false" />
+
         <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
             android:defaultValue="100"
             android:key="qs_transparency"

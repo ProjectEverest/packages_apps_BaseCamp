@@ -46,7 +46,7 @@ public class QuickSwitch extends SettingsPreferenceFragment
 
     private static final String QUICKSWITCH_KEY = "persist.sys.default_launcher";
     private static final String NOTHING_CUSTOMIZE_KEY = "nothing_launcher_customizations";
-    private static final int NOTHING_LAUNCHER_VALUE = 2;
+    private static final int NOTHING_LAUNCHER_VALUE = 3;
     
     private Preference quickSwitchPref;
 

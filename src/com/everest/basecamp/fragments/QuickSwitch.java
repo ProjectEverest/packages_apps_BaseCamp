@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.provider.SearchIndexableResource;
 
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
@@ -46,9 +47,8 @@ public class QuickSwitch extends SettingsPreferenceFragment
 
     private static final String QUICKSWITCH_KEY = "persist.sys.default_launcher";
     private static final String NOTHING_CUSTOMIZE_KEY = "nothing_launcher_customizations";
-    private static final int NOTHING_LAUNCHER_VALUE = 3;
     
-    private Preference quickSwitchPref;
+    private ListPreference quickSwitchPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,14 +57,24 @@ public class QuickSwitch extends SettingsPreferenceFragment
         
         int defaultLauncher = SystemProperties.getInt(QUICKSWITCH_KEY, 0);
         PreferenceScreen preferenceScreen = getPreferenceScreen();
-        if (defaultLauncher != NOTHING_LAUNCHER_VALUE) {
-            Preference nothingLauncherPref = findPreference(NOTHING_CUSTOMIZE_KEY);
-            if (nothingLauncherPref != null) {
-                preferenceScreen.removePreference(nothingLauncherPref);
-            }
-        }
         quickSwitchPref = findPreference(QUICKSWITCH_KEY);
         quickSwitchPref.setOnPreferenceChangeListener(this);
+        Context context = getContext();
+        List<String> launcherEntries = new ArrayList<>();
+        List<String> launcherValues = new ArrayList<>();
+        launcherEntries.add("QuickStep");
+        launcherValues.add("0");
+        if (SystemProperties.getInt("persist.sys.quickswitch_pixel_shipped", 0) != 0) {
+            launcherEntries.add("Pixel Launcher");
+            launcherValues.add("1");
+        }
+        if (SystemProperties.getInt("persist.sys.quickswitch_lawnchair_shipped", 0) != 0) {
+            launcherEntries.add("Lawnchair");
+            launcherValues.add("2");
+        }
+        quickSwitchPref.setEntries(launcherEntries.toArray(new CharSequence[launcherEntries.size()]));
+        quickSwitchPref.setEntryValues(launcherValues.toArray(new CharSequence[launcherValues.size()]));
+        quickSwitchPref.setValue(String.valueOf(defaultLauncher));
     }
 
     @Override

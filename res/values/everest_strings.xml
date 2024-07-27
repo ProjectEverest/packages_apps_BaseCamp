@@ -819,4 +819,9 @@
     <string name="dw_footer_text">
         The depth wallpaper feature, inspired by iOS\'s Wallpaper Subject Segmentation, enables overlaying of a subject above the lockscreen clock to show a wallpaper depth effect.\n\nTo setup Depth Wallpaper Feature:\n1. Set a wallpaper with the subject or a background you want the subject to be above of.\n2. Select a subject image to track, this image will be overlaid above the lockscreen clock.\n3. Modify the offsets and opacity according to your needs.
     </string>
+
+    <!-- AOD custom image -->
+    <string name="lockscreen_custom_image_title">Lockscreen AOD image</string>
+    <string name="lockscreen_custom_image_summary">Set custom lockscreen AOD image</string>
+    <string name="custom_aod_image_not_supported">Clock style not supported</string>
 </resources>

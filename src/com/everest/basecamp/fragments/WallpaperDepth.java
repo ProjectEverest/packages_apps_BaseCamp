@@ -43,16 +43,9 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.everest.basecamp.utils.ImageUtils;
+
 import java.util.List;
-import java.util.Locale;
 
 @SearchIndexable
 public class WallpaperDepth extends SettingsPreferenceFragment
@@ -102,50 +95,12 @@ public class WallpaperDepth extends SettingsPreferenceFragment
 
             final Uri imgUri = result.getData();
             if (imgUri != null) {
-                String savedImagePath = saveImageToInternalStorage(getContext(), imgUri);
+                String savedImagePath = ImageUtils.saveImageToInternalStorage(getContext(), imgUri, "depthwallpaper", "DEPTH_WALLPAPER_SUBJECT");
                 if (savedImagePath != null) {
                     ContentResolver resolver = getContext().getContentResolver();
                     Settings.System.putStringForUser(resolver, "depth_wallpaper_subject_image_uri", savedImagePath, UserHandle.USER_CURRENT);
                 }
             }
-        }
-    }
-
-    private String saveImageToInternalStorage(Context context, Uri imgUri) {
-        try {
-            InputStream inputStream;
-            if (imgUri.toString().startsWith("content://com.google.android.apps.photos.contentprovider")) {
-                List<String> segments = imgUri.getPathSegments();
-                if (segments.size() > 2) {
-                    String mediaUriString = URLDecoder.decode(segments.get(2), StandardCharsets.UTF_8.name());
-                    Uri mediaUri = Uri.parse(mediaUriString);
-                    inputStream = context.getContentResolver().openInputStream(mediaUri);
-                } else {
-                    throw new FileNotFoundException("Failed to parse Google Photos content URI");
-                }
-            } else {
-                inputStream = context.getContentResolver().openInputStream(imgUri);
-            }
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
-            String imageFileName = "DEPTH_WALLPAPER_SUBJECT_" + timeStamp + ".png";
-            File directory = new File("/sdcard/depthwallpaper");
-            if (!directory.exists() && !directory.mkdirs()) {
-                return null;
-            }
-            File[] files = directory.listFiles((dir, name) -> name.startsWith("DEPTH_WALLPAPER_SUBJECT_") && name.endsWith(".png"));
-            if (files != null) {
-                for (File file : files) {
-                    file.delete();
-                }
-            }
-            File file = new File(directory, imageFileName);
-            try (FileOutputStream outputStream = new FileOutputStream(file)) {
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-            }
-            return file.getAbsolutePath();
-        } catch (Exception e) {
-            return null;
         }
     }
 

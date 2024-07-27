@@ -15,10 +15,16 @@
  */
 package com.everest.basecamp.fragments;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
@@ -38,6 +44,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.LayoutPreference;
 
+import com.everest.basecamp.utils.ImageUtils;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -48,6 +56,9 @@ import java.util.stream.Collectors;
 public class LockScreenClock extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
     public static final String TAG = "LockScreenClock";
+    
+    private static final String CUSTOM_IMAGE_REQUEST_CODE_KEY = "lockscreen_custom_image";
+    private static final int CUSTOM_IMAGE_REQUEST_CODE = 1001;
 
     private static final String MAIN_WIDGET_1_KEY = "main_custom_widgets1";
     private static final String MAIN_WIDGET_2_KEY = "main_custom_widgets2";
@@ -68,6 +79,7 @@ public class LockScreenClock extends SettingsPreferenceFragment implements Prefe
     private Preference mExtraWidget4;
     private Preference mDeviceInfoWidgetPref;
     private Button mApplyChange;
+    private Preference mCustomImagePreference;
     
     private SwitchPreferenceCompat mLockScreenWidgetsEnabledPref;
     private List<Preference> mWidgetPreferences;
@@ -98,6 +110,44 @@ public class LockScreenClock extends SettingsPreferenceFragment implements Prefe
         loadInitialPreferences();
         saveInitialPreferences();
         mApplyChange.setEnabled(false);
+        
+        mCustomImagePreference = findPreference(CUSTOM_IMAGE_REQUEST_CODE_KEY);
+        int clockStyle = Settings.System.getIntForUser(getContext().getContentResolver(), "clock_style", 0, UserHandle.USER_CURRENT);
+        String imagePath = Settings.System.getString(getContext().getContentResolver(), "custom_aod_image_uri");
+        if (imagePath != null && clockStyle > 0) {
+            mCustomImagePreference.setSummary(imagePath);
+            mCustomImagePreference.setEnabled(true);
+        } else if (clockStyle == 0) {
+            mCustomImagePreference.setSummary(getContext().getString(R.string.custom_aod_image_not_supported));
+            mCustomImagePreference.setEnabled(false);
+        }
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mCustomImagePreference) {
+            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("image/*");
+            startActivityForResult(intent, CUSTOM_IMAGE_REQUEST_CODE);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent result) {
+        super.onActivityResult(requestCode, resultCode, result);
+        if (requestCode == CUSTOM_IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK && result != null) {
+            Uri imgUri = result.getData();
+            if (imgUri != null) {
+                String savedImagePath = ImageUtils.saveImageToInternalStorage(getContext(), imgUri, "lockscreen_aod_image", "LOCKSCREEN_CUSTOM_AOD_IMAGE");
+                if (savedImagePath != null) {
+                    ContentResolver resolver = getContext().getContentResolver();
+                    Settings.System.putStringForUser(resolver, "custom_aod_image_uri", savedImagePath, UserHandle.USER_CURRENT);
+                    mCustomImagePreference.setSummary(savedImagePath);
+                }
+            }
+        }
     }
 
     private void initializePreferences() {

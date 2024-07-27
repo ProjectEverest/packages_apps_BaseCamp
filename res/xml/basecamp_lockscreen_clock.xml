@@ -36,6 +36,11 @@
             android:summary="@string/theme_customization_lock_clock_summary"
             android:fragment="com.everest.basecamp.fragments.lockscreen.LockClockFontsPickerPreview" />
 
+        <Preference
+            android:key="lockscreen_custom_image"
+            android:title="@string/lockscreen_custom_image_title"
+            android:summary="@string/lockscreen_custom_image_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

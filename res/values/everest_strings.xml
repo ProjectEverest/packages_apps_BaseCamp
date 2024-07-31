@@ -896,4 +896,6 @@
     <string name="hardware_keys_action_close_app">Kill app</string>
     <string name="hardware_keys_action_search">Search assistant</string>
     <string name="hardware_keys_action_voice_search">Voice search</string>
+    <string name="three_finger_long_press_action_title">Three Finger Long Press Gestures</string>
+    <string name="three_finger_long_press_action_dialog_title">Swipe Three Finger Gestures Actions</string>
 </resources>

@@ -879,6 +879,13 @@
     <string name="nothing_launcher_customizations_title">Nothing launcher customizations</string>
     <string name="nothing_launcher_customizations_summary">Customize nothing launcher homescreen app</string>
 
+    <!-- Gestures -->
+    <string name="custom_gestures_title">Custom Gestures</string>
+    <string name="gestures_title_summary">Use gestures to perform device actions</string>
+
+    <!-- Three-fingers-swipe to screenshot -->
+    <string name="three_finger_gestures_title">Three finger gestures</string>
+
      <!-- Shake Gestures -->
     <string name="shake_gestures_enabled_title">Shake Gestures</string>
     <string name="shake_gestures_enabled_summary">Shake your device to perform actions</string>

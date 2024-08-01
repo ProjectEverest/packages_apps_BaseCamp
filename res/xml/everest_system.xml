@@ -24,6 +24,12 @@
         android:summary="@string/show_multi_user_avatar_on_homepage_summary"
         android:defaultValue="true" />
     
+    <Preference
+        android:key="gestures"
+        android:title="@string/custom_gestures_title"
+        android:summary="@string/gestures_title_summary"
+        android:fragment="com.everest.basecamp.fragments.Gestures" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -65,56 +71,6 @@
             android:summary="@string/sound_engine_summary"
             android:fragment="com.everest.basecamp.fragments.sound.SoundEngine" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="shake_gestures"
-        android:title="@string/gestures_title">
-
-        <com.everest.basecamp.preferences.SystemSettingSwitchPreference
-            android:key="shake_gestures_enabled"
-            android:title="@string/shake_gestures_enabled_title"
-            android:summary="@string/shake_gestures_enabled_summary"
-            android:defaultValue="false" />
-
-        <com.everest.basecamp.preferences.SystemSettingListPreference
-            android:key="shake_gestures_action"
-            android:dialogTitle="@string/shake_gestures_action_title"
-            android:title="@string/shake_gestures_action_title"
-            android:entries="@array/shake_gestures_action_entries"
-            android:entryValues="@array/shake_gestures_action_values"
-            android:dependency="shake_gestures_enabled"
-            android:persistent="false" />
-
-         <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
-            android:key="shake_gestures_intensity"
-            android:title="@string/shake_gestures_intensity_title"
-            android:summary="@string/shake_gestures_intensity_summary"
-            android:dependency="shake_gestures_enabled"
-            android:defaultValue="3"
-            settings:interval="1"
-            android:max="12"
-            android:min="1" />
-
-        <!-- Three-fingers-swipe gestures -->
-        <com.everest.basecamp.preferences.SystemSettingListPreference
-            android:key="three_finger_gesture_action"
-            android:title="@string/three_finger_gesture_action_title"
-            android:summary="%s"
-            android:dialogTitle="@string/three_finger_gesture_action_dialog_title"
-            android:entries="@array/shake_gestures_action_entries"
-            android:entryValues="@array/shake_gestures_action_values"
-            android:defaultValue="0" />
-
-        <!-- Three-fingers long press gestures -->
-        <com.everest.basecamp.preferences.SystemSettingListPreference
-            android:key="three_finger_long_press_action"
-            android:title="@string/three_finger_long_press_action_title"
-            android:summary="%s"
-            android:dialogTitle="@string/three_finger_long_press_action_dialog_title"
-            android:entries="@array/shake_gestures_action_entries"
-            android:entryValues="@array/shake_gestures_action_values"
-            android:defaultValue="0" />
     </PreferenceCategory>
 
 </PreferenceScreen>

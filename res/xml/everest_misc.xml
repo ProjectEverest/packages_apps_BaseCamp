@@ -86,4 +86,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="miscellaneous_spoofing_category"
+        android:title="@string/miscellaneous_spoofing_category">
+
+        <Preference
+            android:key="spoofing"
+            android:title="@string/spoofing_title"
+            android:summary="@string/spoofing_title_summary"
+            android:fragment="com.everest.basecamp.fragments.Spoof" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

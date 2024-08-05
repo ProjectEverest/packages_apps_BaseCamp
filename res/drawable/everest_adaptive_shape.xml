@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <com.android.settingslib.widget.AdaptiveIconShapeDrawable 
+        android:height="36.0dip" 
+        android:width="36.0dip" 
+        android:color="#ffffffff" />
+    </item>
+</layer-list>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2016 The Dirty Unicorns Project
+ * Copyright (C) 2023 The EverestOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,33 +16,31 @@
 
 package com.everest.basecamp.categories;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Bundle;
-
-import androidx.preference.Preference;
-import androidx.preference.PreferenceGroup;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-
 import com.android.internal.logging.nano.MetricsProto;
 
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Surface;
+import android.preference.Preference;
+import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.settings.R;
+
 import com.android.settings.SettingsPreferenceFragment;
 
-public class System extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
-
-    private static final String TAG = "System";
+public class System extends SettingsPreferenceFragment {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.system);
-
-        ContentResolver resolver = getActivity().getContentResolver();
     }
 
     @Override
@@ -51,17 +49,47 @@ public class System extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup container, Bundle icicle) {
+        RecyclerView rcv = super.onCreateRecyclerView(inflater, container, icicle);
+        GridLayoutManager layoutG = new GridLayoutManager(getActivity(), 2);
+        layoutG.setSpanSizeLookup(new SpanSizeLookupG());
+        rcv.setLayoutManager(layoutG);
+        return rcv;
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
+    class SpanSizeLookupG extends GridLayoutManager.SpanSizeLookup {
+        @Override
+        public int getSpanSize(int position) {
+                return 1;
+        }
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
-        return true;
+    public static void lockCurrentOrientation(Activity activity) {
+        int currentRotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+        int orientation = activity.getResources().getConfiguration().orientation;
+        int frozenRotation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
+        switch (currentRotation) {
+            case Surface.ROTATION_0:
+                frozenRotation = orientation == Configuration.ORIENTATION_LANDSCAPE
+                        ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                        : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+                break;
+            case Surface.ROTATION_90:
+                frozenRotation = orientation == Configuration.ORIENTATION_PORTRAIT
+                        ? ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
+                        : ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+                break;
+            case Surface.ROTATION_180:
+                frozenRotation = orientation == Configuration.ORIENTATION_LANDSCAPE
+                        ? ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+                        : ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
+                break;
+            case Surface.ROTATION_270:
+                frozenRotation = orientation == Configuration.ORIENTATION_PORTRAIT
+                        ? ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                        : ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+                break;
+        }
+        activity.setRequestedOrientation(frozenRotation);
     }
 }

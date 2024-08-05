@@ -24,4 +24,19 @@
     <dimen name="everest_radius_merge">5dp</dimen>
     <dimen name="everest_pref_horizontal_padding">16dp</dimen>
     <dimen name="everest_pref_horizontal_padding-negative">-16dp</dimen>
+
+    <!-- Dashboard tile minimum height -->
+    <dimen name="dashboard_tile_minimum_height">72dp</dimen>
+
+    <!-- Dashboard tile image margin start / end -->
+    <dimen name="dashboard_tile_image_margin">18dp</dimen>
+
+    <!-- Dashboard foreground image size -->
+    <dimen name="dashboard_tile_foreground_image_size">30dp</dimen>
+
+    <!-- Dashboard foreground image inset (from background edge to foreground edge) -->
+    <dimen name="dashboard_tile_foreground_image_inset">6dp</dimen>
+
+    <!-- Preference icon foreground image inset (from background edge to foreground edge) -->
+    <dimen name="preference_icon_foreground_image_inset">6dp</dimen>
 </resources>

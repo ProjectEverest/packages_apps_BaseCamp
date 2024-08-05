@@ -1,10 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2024 The EverestOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <!-- BaseCamp Header -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="basecamp_header"
+        android:layout="@layout/basecamp_header" />
+
+    <!-- Theme Room -->
+    <Preference
+        android:fragment="com.everest.basecamp.fragments.ThemeRoom"
+        android:icon="@drawable/ic_settings_theme"
+        android:key="theme_category"
+        android:summary="@string/theme_summary"
+        android:title="@string/theme_title"
+        settings:layout="@layout/everest_cardview_single_left" />
 
 </PreferenceScreen>

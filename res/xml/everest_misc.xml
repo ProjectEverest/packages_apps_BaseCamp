@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022-2023 The EverestOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/misc_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <PreferenceCategory
+        android:title="@string/setstyles_category">
+
+        <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
+            android:max="100"
+            android:title="@string/header_blur_title"
+            android:summary="@string/header_blur_summary"
+            android:key="basecamp_wpblur_radius"
+            android:defaultValue="15"
+            settings:units="%" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

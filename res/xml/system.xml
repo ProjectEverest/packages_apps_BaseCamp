@@ -1,10 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2024 The EverestOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
-<PreferenceScreen
+<PreferenceScreen 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <!-- Notifications -->
+    <Preference
+        android:fragment="com.everest.basecamp.fragments.Notifications"
+        android:icon="@drawable/ic_settings_notifications"
+        android:key="notifications_category"
+        android:summary="@string/notifications_summary"
+        android:title="@string/notifications_title"
+        settings:layout="@layout/everest_cardview_single_left" />
+
+    <!-- Buttons -->
+    <Preference
+        android:fragment="com.everest.basecamp.fragments.Buttons"
+        android:icon="@drawable/ic_settings_powermenu"
+        android:key="buttonsettings_category"
+        android:summary="@string/button_summary"
+        android:title="@string/button_title"
+        settings:layout="@layout/everest_cardview_single_right" />
+    
+    <!-- system -->
+    <Preference
+        android:fragment="com.everest.basecamp.fragments.SystemSettings"
+        android:icon="@drawable/ic_settings_system"
+        android:key="system_category"
+        android:summary="@string/system_summary"
+        android:title="@string/system_title"
+        settings:layout="@layout/everest_cardview_single_left" />
+
+    <!-- Misc -->
+    <Preference
+        android:fragment="com.everest.basecamp.fragments.Miscs"
+        android:icon="@drawable/ic_settings_miscs"
+        android:key="misc_category"
+        android:summary="@string/misc_summary"
+        android:title="@string/misc_title"
+        settings:layout="@layout/everest_cardview_single_right" />
 
 </PreferenceScreen>

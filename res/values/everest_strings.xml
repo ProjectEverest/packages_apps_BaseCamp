@@ -10,12 +10,10 @@
     <string name="basecamp_title">BaseCamp</string>
     <string name="add">Add</string>
     <string name="advanced">Advanced</string>
-    <string name="cancel">Cancel</string>
     <string name="default_text">Default</string>
     <string name="dlg_ok">OK</string>
     <string name="attention">Attention</string>
     <string name="loading">Loading\u2026</string>
-    <string name="reset">Reset</string>
     <string name="reset_colors">Reset colors</string>
     <string name="reset_android">Android</string>
     <string name="text_title">Text</string>
@@ -49,4 +47,39 @@
     <string name="custom_seekbar_default_value">by default</string>
     <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
+
+    <!-- Fragments -->
+    <string name="button_title">Buttons</string>
+    <string name="gestures_title">Gestures</string>
+    <string name="lockscreen_title">Lock screen</string>
+    <string name="misc_title">Miscellaneous</string>
+    <string name="quicksettings_title">Quick Settings</string>
+    <string name="statusbar_title">Status bar</string>
+    <string name="system_title">System</string>
+    <string name="powermenu_title">Power Menu</string>
+    <string name="theme_title">Theme Room</string>
+    <string name="notifications_title">Notifications</string>
+
+    <!-- General strings -->
+    <string name="ok">OK</string>
+    <string name="reset">Reset</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+
+    <!-- Fragments Summary-->
+    <string name="button_summary">Customize your buttons</string>
+    <string name="gestures_summary">Gestures Customizations</string>
+    <string name="lockscreen_summary">Customizations for lock screen</string>
+    <string name="misc_summary">Spoofing, smart pixels..</string>
+    <string name="powermenu_summary">Power Menu Options</string>
+    <string name="quicksettings_summary">QS Customizations</string>
+    <string name="statusbar_summary">Customize your Statusbar</string>
+    <string name="system_summary">System related Settings</string>
+    <string name="theme_summary">Icon shapes, fonts, icon packs...</string>
+    <string name="notifications_summary">Island, Edge Light, Heads up...</string>
+
+    <!-- WallpaperView Blur -->
+    <string name="setstyles_category">Settings Styles</string>
+    <string name="header_blur_title">WallpaperView Blur</string>
+    <string name="header_blur_summary">Control WallpaperView Blur on BaseCamp and Settings</string>
 </resources>

@@ -504,4 +504,8 @@
     <!-- AOSP Gestures -->
     <string name="aosp_gesture_preference">System Gestures</string>
     <string name="aosp_gesture_summary">Stock gestures included with AOSP</string>
+
+    <!-- System Buttons -->
+    <string name="system_buttons_title">Buttons Settings</string>
+    <string name="system_buttons_summary">Buttons settings present in system</string>
 </resources>

@@ -3,20 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-            android:id="@+id/themes_category"
-            android:icon="@drawable/ic_category_theme"
-            android:title="@string/themes_category"
-            app:exb_color="@color/bottombar_active" />
-            
-    <item
-            android:id="@+id/system_category"
-            android:icon="@drawable/ic_category_system"
-            android:title="@string/system_category" 
-            app:exb_color="@color/bottombar_active" />
+        android:id="@+id/themes_category"
+        android:icon="@drawable/ic_category_theme"
+        android:title="@string/themes_category"
+        app:exb_color="@color/bottombar_active" />
 
     <item
-            android:id="@+id/about_category"
-            android:icon="@drawable/ic_about"
-            android:title="@string/about_category" 
-            app:exb_color="@color/bottombar_active" />
+        android:id="@+id/system_category"
+        android:icon="@drawable/ic_category_system"
+        android:title="@string/system_category"
+        app:exb_color="@color/bottombar_active" />
 </menu>

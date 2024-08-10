@@ -23,6 +23,14 @@
         android:title="@string/system_category">
 
     <Preference
+        android:fragment="com.android.settings.accessibility.VibrationSettings"
+        android:key="vibration_and_haptics"
+        android:title="@string/system_vibration_title"
+        android:summary="@string/system_vibration_summary"
+        settings:controller="com.android.settings.accessibility.VibrationPreferenceController"
+        settings:keywords="@string/keywords_vibration"/>
+
+    <Preference
         android:key="gesture_system_navigation"
         android:title="@string/system_navigation_title"
         android:summary="@string/system_navigation_summary"

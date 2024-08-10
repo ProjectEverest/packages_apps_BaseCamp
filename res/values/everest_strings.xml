@@ -704,4 +704,8 @@
     <string name="settings_with_header">with Header</string>
     <string name="settings_without_header">Without Header</string>
     <string name="settings_with_single_layout">Simple</string>
+
+    <!-- System Vibration and Haptics -->
+    <string name="system_vibration_title">System Vibration Settings</string>
+    <string name="system_vibration_summary">Control Vibration and Haptics</string>
 </resources>

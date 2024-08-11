@@ -114,4 +114,24 @@
         </Preference>
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="pocket_mode_category"
+        android:title="@string/pocket_mode_category">
+
+        <!-- Pocket detection -->
+        <com.everest.basecamp.preferences.SecureSettingSwitchPreference
+            android:key="pocket_mode_enabled"
+            android:title="@string/lock_screen_pocket_detection_title"
+            android:summary="@string/lock_screen_pocket_detection_summary"
+            android:defaultValue="false" />
+
+        <com.everest.basecamp.preferences.SecureSettingSwitchPreference
+            android:key="always_on_pocket_mode_enabled"
+            android:title="@string/always_on_pocket_mode_enabled_title"
+            android:summary="@string/always_on_pocket_mode_summary"
+            android:dependency="pocket_mode_enabled"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

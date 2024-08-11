@@ -739,5 +739,11 @@
     <!-- Navbar Animation -->
     <string name="pixel_navbar_anim_title">Pixel animation</string>
     <string name="pixel_navbar_anim_summary">Enable pixel style animation for 3-button navigation bar</string>
-</resources>
 
+    <!-- Pocket Mode -->
+    <string name="pocket_mode_category">Pocket Mode</string>
+    <string name="lock_screen_pocket_detection_title">Pocket detection</string>
+    <string name="lock_screen_pocket_detection_summary">Block screen and button inputs when device is in pocket</string>
+    <string name="always_on_pocket_mode_enabled_title">Always on Pocket mode</string>
+    <string name="always_on_pocket_mode_summary">Always block screen and button inputs when screen is turned on</string>
+</resources>

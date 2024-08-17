@@ -1048,4 +1048,15 @@
     <string name="show_pif_properties_title">Play Integrity Fix properties</string>
     <string name="show_pif_properties_summary">Show all currently set PIF properties</string>
     <string name="error_loading_properties">Error loading PIF properties</string>
+
+    <!-- BootAnimation Styles -->
+    <string name="boot_animation_styles_title">Bootanimation Styles</string>
+
+    <!-- Boot Animation Preview Strings -->
+    <string name="boot_animation_preview_desc">Preview of the selected boot animation</string>
+    <string name="boot_animation_preview_summary">Displays a preview of the currently selected boot animation</string>
+    <string name="boot_animation_preview_title">Boot Animation Preview</string>
+
+    <!-- Boot Animation Style Strings -->
+    <string name="boot_animation_styles_summary">Choose a style for your boot animation</string>
 </resources>

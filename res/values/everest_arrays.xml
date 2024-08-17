@@ -11,6 +11,31 @@
         <!--<item>@string/network_traffic_location_quick_statusbar</item>-->
     </string-array>
 
+    <!-- Boot animation Styles -->
+   <string-array name="boot_animation_styles_entries">
+        <item>(Default) Everest</item>
+        <item>CyberPunk</item>
+        <item>Google</item>
+        <item>Google (Monet)</item>
+        <item>Valorant</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="boot_animation_styles_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <!-- Black theme styles -->
+    <string-array name="black_theme_style_entries" translatable="false">
+        <item>@string/color_default</item>
+        <item>@string/black_theme_style_berry</item>
+        <item>@string/black_theme_style_amoled</item>
+    </string-array>
+
     <string-array name="network_traffic_location_values" translatable="false">
         <item>0</item>
         <item>1</item>

@@ -16,13 +16,17 @@
 
 package com.everest.basecamp.fragments;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
+import android.provider.MediaStore;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.view.View;
@@ -47,6 +51,7 @@ import com.android.internal.util.everest.ThemeUtils;
 
 import com.everest.basecamp.fragments.quicksettings.QsHeaderImageSettings;
 import com.everest.basecamp.preferences.SystemSettingListPreference;
+import com.everest.basecamp.utils.ImageUtils;
 import com.everest.basecamp.utils.ResourceUtils;
 
 import java.util.ArrayList;
@@ -63,6 +68,8 @@ import lineageos.providers.LineageSettings;
 public class QuickSettings extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener {
 
+    private static final int CUSTOM_IMAGE_REQUEST_CODE = 1001;
+
     private static final String KEY_INTERFACE_CATEGORY = "quick_settings_interface_category";
     private static final String KEY_QUICK_PULLDOWN = "qs_quick_pulldown";
     private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
@@ -73,6 +80,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private static final String KEY_QS_COMPACT_PLAYER  = "qs_compact_media_player_mode";
     private static final String KEY_QS_SPLIT_SHADE = "qs_split_shade";
     private static final String KEY_QS_WIDGETS_ENABLED  = "qs_widgets_enabled";
+    private static final String KEY_QS_WIDGETS_PHOTO_IMG  = "qs_widgets_photo_showcase_image";
 
     private static final String QS_SPLIT_SHADE_LAYOUT_CTG = "android.theme.customization.qs_landscape_layout";
     private static final String QS_SPLIT_SHADE_LAYOUT_PKG = "com.android.systemui.qs.landscape.split_shade_layout";
@@ -93,6 +101,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     private Preference mQsCompactPlayer;
     private SwitchPreferenceCompat mSplitShade;
     private Preference mQsWidgetsPref;
+    private Preference mQsWidgetPhoto;
     private ListPreference mQsPanelStyle;
 
     private static ThemeUtils mThemeUtils;
@@ -124,6 +133,8 @@ public class QuickSettings extends SettingsPreferenceFragment
         mShowBrightnessSlider.setOnPreferenceChangeListener(this);
         mQsWidgetsPref = findPreference(KEY_QS_WIDGETS_ENABLED);
         mQsWidgetsPref.setOnPreferenceChangeListener(this);
+        mQsWidgetPhoto = findPreference(KEY_QS_WIDGETS_PHOTO_IMG);
+        mQsWidgetPhoto.setOnPreferenceChangeListener(this);
         boolean showSlider = LineageSettings.Secure.getIntForUser(resolver,
                 LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT) > 0;
 
@@ -304,6 +315,33 @@ public class QuickSettings extends SettingsPreferenceFragment
         int index = mQsPanelStyle.findIndexOfValue(Integer.toString(qsPanelStyle));
         mQsPanelStyle.setValue(Integer.toString(qsPanelStyle));
         mQsPanelStyle.setSummary(mQsPanelStyle.getEntries()[index]);
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mQsWidgetPhoto) {
+            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("image/*");
+            startActivityForResult(intent, CUSTOM_IMAGE_REQUEST_CODE);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent result) {
+        super.onActivityResult(requestCode, resultCode, result);
+        if (requestCode == CUSTOM_IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK && result != null) {
+            Uri imgUri = result.getData();
+            if (imgUri != null) {
+                String savedImagePath = ImageUtils.saveImageToInternalStorage(getContext(), imgUri, "qs_widgets", "QS_WIDGETS_PHOTO_SHOWCASE");
+                if (savedImagePath != null) {
+                    ContentResolver resolver = getContext().getContentResolver();
+                    Settings.System.putStringForUser(resolver, "qs_widgets_photo_showcase_path", savedImagePath, UserHandle.USER_CURRENT);
+                    mQsWidgetPhoto.setSummary(savedImagePath);
+                }
+            }
+        }
     }
 
     @Override

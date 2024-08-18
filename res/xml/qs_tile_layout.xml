@@ -29,6 +29,22 @@
             android:defaultValue="false" />
 
         <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
+            android:key="qs_layout_rows"
+            android:title="@string/qs_rows_portrait_title"
+            android:max="5"
+            settings:min="2"
+            settings:interval="1"
+            android:defaultValue="4" />
+
+        <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
+            android:key="qs_layout_rows_landscape"
+            android:title="@string/qs_rows_landscape_title"
+            android:max="3"
+            settings:min="1"
+            settings:interval="1"
+            android:defaultValue="2" />
+
+        <com.everest.basecamp.preferences.SystemSettingSeekBarPreference
             android:key="qs_layout_columns"
             android:title="@string/qs_columns_portrait_title"
             android:max="5"

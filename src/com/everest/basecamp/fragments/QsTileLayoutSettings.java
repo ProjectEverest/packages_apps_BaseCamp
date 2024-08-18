@@ -106,6 +106,10 @@ public class QsTileLayoutSettings extends SettingsPreferenceFragment implements 
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_TILE_LABEL_SIZE, 14, UserHandle.USER_CURRENT);
         updateQsStyle(mContext);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.QS_LAYOUT_ROWS, 4, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 2, UserHandle.USER_CURRENT);
     }
 
     private static void updateQsStyle(Context context) {

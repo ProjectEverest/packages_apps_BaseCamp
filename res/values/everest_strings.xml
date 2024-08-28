@@ -1076,4 +1076,8 @@
     <!-- Spoof storage encryption status -->
     <string name="spoof_storage_encryption_status_title">Use storage encryption spoofing</string>
     <string name="spoof_storage_encryption_status_summary">Spoof storage encryption status to encrypted.</string>
+
+    <!-- Contextual Dashboard Message -->
+    <string name="enable_contextual_dashboard_title">Contextual Dashboard Message</string>
+    <string name="enable_contextual_dashboard_summary">Show contextual greetings on the dashboard</string>
 </resources>

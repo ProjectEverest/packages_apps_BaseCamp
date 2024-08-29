@@ -109,7 +109,7 @@
                     android:ellipsize="marquee"
                     android:fontFamily="@*android:string/config_headlineFontFamily"
                     android:singleLine="true"
-                    android:text="StatusBar"
+                    android:text="@string/themes_status_bar_title"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="17.0sp"
                     android:textStyle="bold" />
@@ -157,7 +157,7 @@
                     android:ellipsize="marquee"
                     android:fontFamily="@*android:string/config_headlineFontFamily"
                     android:singleLine="true"
-                    android:text="Quick Settings"
+                    android:text="@string/themes_quick_settings_title"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="17.0sp"
                     android:textStyle="bold" />

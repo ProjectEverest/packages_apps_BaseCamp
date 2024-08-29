@@ -29,6 +29,8 @@
     <string name="themes_signal_icon_summary">Set signal icon style</string>
     <string name="themes_wifi_icon_title">Wi-Fi icon</string>
     <string name="themes_wifi_icon_summary">Set Wi-Fi icon style</string>
+    <string name="themes_status_bar_title">Status Bar</string>
+    <string name="themes_quick_settings_title">Quick Settings</string>
     
     <!-- General app strings -->
     <string name="basecamp_title">BaseCamp</string>

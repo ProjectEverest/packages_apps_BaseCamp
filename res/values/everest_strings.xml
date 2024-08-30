@@ -1088,6 +1088,7 @@
 
     <!-- Boot Animation Style Strings -->
     <string name="boot_animation_styles_summary">Choose a style for your boot animation</string>
+    <string name="boot_animation_applied">Bootanimation applied</string>
 
     <!-- QS Panel Style -->
     <string name="quick_settings_panel_style_title">QS panel style</string>

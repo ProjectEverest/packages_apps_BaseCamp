@@ -29,6 +29,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -126,9 +127,13 @@ public class LockScreenClock extends SettingsPreferenceFragment implements Prefe
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference == mCustomImagePreference) {
-            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            intent.setType("image/*");
-            startActivityForResult(intent, CUSTOM_IMAGE_REQUEST_CODE);
+            try {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setType("image/*");
+                startActivityForResult(intent, CUSTOM_IMAGE_REQUEST_CODE);
+            } catch(Exception e) {
+                Toast.makeText(getContext(), R.string.qs_header_needs_gallery, Toast.LENGTH_LONG).show();
+            }
             return true;
         }
         return super.onPreferenceTreeClick(preference);

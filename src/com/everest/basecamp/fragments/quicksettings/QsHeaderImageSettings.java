@@ -149,9 +149,13 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference == mFileHeader) {
-            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            intent.setType("image/*");
-            startActivityForResult(intent, 10001);
+            try {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setType("image/*");
+                startActivityForResult(intent, 10001);
+            } catch(Exception e) {
+                Toast.makeText(getContext(), R.string.qs_header_needs_gallery, Toast.LENGTH_LONG).show();
+            }
             return true;
         }
         return super.onPreferenceTreeClick(preference);

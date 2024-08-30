@@ -31,7 +31,7 @@
 
 
      <PreferenceCategory
-        android:title="Depth Wallpaper">
+        android:title="@string/dw_wallpaper_category">
 
         <Preference
             android:key="depth_wallpaper"

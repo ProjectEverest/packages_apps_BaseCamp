@@ -833,6 +833,7 @@
     <string name="three_finger_gesture_action_dialog_title">Swipe Three Finger Gestures Actions</string>
 
     <!-- Depth Wallpaper -->
+    <string name="dw_wallpaper_category">Depth Wallpaper</string>
     <string name="dw_file_header_select_title">Select Depth Wallpaper Subject</string>
     <string name="dw_file_header_select_summary">Select depth wallpaper subject image from storage.</string>
     <string name="dw_wallpaper_enabled_title">Depth Wallpaper</string>
